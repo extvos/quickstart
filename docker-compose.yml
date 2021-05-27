@@ -1,0 +1,63 @@
+version: "3.3"
+
+services:
+  redis:
+    image: extvos/redis:latest
+    environment:
+      REDIS_PROTECTED_MODE: "no"
+      REDIS_DATABASE: 24
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  mysql:
+    image: extvos/mysql:latest
+    volumes:
+      - "./data/mysql:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quickdb
+    ports:
+      - "127.0.0.1:3306:3306"
+
+  quick-demo:
+    image: java:8
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SERVICE_NAME: quick-demo
+      SERVER_PORT: 8080
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: quickdb
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      REDIS_HOST: redis
+      REDIS_DATABASE: 1
+      AUTH_BASE_URL: http://work.cygnux.cn
+      WECHAT_APP_ID: wx01452e935078e443
+      WECHAT_APP_SECRET: f94afce4d4baafad153f7bcfc5313733
+      WECHAT_SCOPE: snsapi_base
+      WECHAT_TOKEN: quick-wechat
+
+
+    volumes:
+      - "./data/log:/var/log"
+      - "./data/files:/home/data"
+      - "./demo/target/quick-demo-app-0.0.1-SNAPSHOT.jar:/home/boot.jar"
+    command: ["java", "-jar", "/home/boot.jar"]
+
+  nginx:
+    image: extvos/nginx:latest
+    build:
+      context: ./nginx/
+    depends_on:
+      - quick-demo
+    volumes:
+      - "./nginx/sites.d:/etc/nginx/sites.d"
+      - "./nginx/cert:/etc/nginx/cert"
+      - "./data/files:/home/data"
+      - "./data/log:/var/log/nginx"
+      - "./htmldocs:/var/lib/nginx/html"
+    ports:
+      - "80:80"
+      - "443:443"

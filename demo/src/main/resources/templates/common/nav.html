@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:fragment="Navigator(activate)">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"
+                        th:attr="class=${#httpServletRequest.requestURI=='/'||#httpServletRequest.requestURI==''||#httpServletRequest.requestURI=='/index'?'active':''}">
+                        <a href="/">Home</a></li>
+                    <li th:if="!${isAuthenticated}" role="presentation"
+                        th:attr="class=${#httpServletRequest.requestURI=='/login'?'active':''}"><a
+                            href="/login">Login</a></li>
+                    <li th:if="${isAuthenticated}" role="presentation"
+                        th:attr="class=${#httpServletRequest.requestURI=='/profile'?'active':''}"><a
+                            href="/profile">User Profile</a></li>
+                    <li th:if="${isAuthenticated}" role="presentation"
+                        th:attr="class=${#httpServletRequest.requestURI=='/auth/logout'?'active':''}"><a
+                            href="/auth/logout">Logout</a></li>
+                    <li role="presentation" th:attr="class=${#httpServletRequest.requestURI=='/doc.html'?'active':''}">
+                        <a href="/doc.html" target="_blank">Documents</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+</div>
+</html>

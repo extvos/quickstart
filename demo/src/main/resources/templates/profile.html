@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head th:include="common/header :: Header('登录')"></head>
+<body>
+<div th:include="common/nav :: Navigator('profile')"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-mod-12">
+            <h3 class="text-success">User Profile</h3>
+            <h5>Token: <span th:text="${profile.id}"></span></h5>
+            <h5>Username: <span th:text="${profile.username}"></span></h5>
+            <h5>Display Name: <span th:text="${profile.displayName}"></span></h5>
+            <h5>Roles: <span th:each="role: ${profile.roles}" class="label label-default" th:text="${role}"></span></h5>
+            <h5>Permissions: <span th:each="role: ${profile.permissions}" class="label label-default"
+                                   th:text="${role}"></span></h5>
+        </div>
+    </div>
+</div>
+<div th:include="common/footer :: Footer"></div>
+</body>
+</html>

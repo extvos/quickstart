@@ -1,0 +1,134 @@
+server:
+  port: ${SERVER_PORT:8083}
+  tomcat:
+    accesslog:
+      buffered: true
+      directory: logs
+      enabled: false
+      file-date-format: .yyyy-MM-dd
+      pattern: common
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log
+  #    basedir: /usr/local/jar/
+  session:
+    tracking-modes: cookie
+
+spring:
+  mvc:
+    static-path-pattern=/template/**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  servlet:
+    multipart:
+      max-file-size: 10MB      # Max file size
+      max-request-size: 10MB   # Max request size
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  datasource:
+    name: mall
+    #使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filters: stat
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #配置基本属性
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:b2bmall}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: ${MYSQL_USERNAME:root}
+      password: ${MYSQL_PASSWORD:root}
+      #配置初始化大小/最小/最大
+      initial-size: 3
+      min-idle: 3
+      max-active: 20
+      #获取连接等待超时时间
+      max-wait: 30000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 30000
+      #一个连接在池中最小生存的时间
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+
+  redis:
+    database: 0
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 1000
+
+### MyBatis 配置
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+quick:
+  restlet:
+    log-trace: true
+    page-key: __page
+    page-size-key: __pageSize
+    order-by-key: __orderBy
+    includes-key: __includes
+    excludes-key: __excludes
+    default-page-size: 10
+    pretty-json: true
+  builtin:
+    geo:
+      full-access: true
+      separator: ' '
+  auth:
+    base-url: ${AUTH_BASE_URL:http://localhost}
+    base:
+      register-allowed: ${AUTH_REGISTER_ALLOWED:true}
+      auto-register: ${AUTH_AUTO_REGISTER:true}
+      salt-required: ${AUTH_SALT_REQUIRED:false}
+      captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
+    wechat:
+      app-id: ${WECHAT_APP_ID:wx01452e935078e443}
+      app-secret: ${WECHAT_APP_SECRET:f94afce4d4baafad153f7bcfc5313733}
+      scope: ${WECHAT_SCOPE:snsapi_base}
+      token: ${WECHAT_TOKEN:quick-wechat}
+
+asyncconfig:
+  corePoolSize: 10
+  maxPoolSize: 200
+  queueCapacity: 10
+
+logging:
+  file: ${LOG_FILENAME:/var/log/dev-example.log}
+  level:
+    org.extvos: ${LOG_LEVEL:info}
+    org.extvos.thread: ${LOG_LEVEL_THREAD:info}
+    org.extvos.restlet: debug
+    org.extvos.common: debug
+    org.extvos.auth: debug
+    org.extvos.builtin: debug
+    org.extvos.example: debug
+#    logging.level.org.hibernate.SQL: DEBUG
+#    logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+

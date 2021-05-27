@@ -1,0 +1,6 @@
+[book]
+authors = ["Mingcai SHEN"]
+language = "zh-CN"
+multilingual = false
+src = "./"
+title = "Quickstart Java 脚手架"

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head th:include="common/header :: Header('首页')"></head>
+<body>
+<div th:include="common/nav :: Navigator('login')"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-mod-12">
+            <h3 th:each="provider: ${providers}" class="text-success" align="center">
+                <span th:text="${provider.slug}"></span>:
+                <span th:text="${provider.name}"></span>
+            </h3>
+        </div>
+    </div>
+</div>
+<div th:include="common/footer :: Footer"></div>
+</body>
+</html>
