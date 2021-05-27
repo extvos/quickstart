@@ -1,0 +1,33 @@
+[submodule "quick-auth-base"]
+	path = quick-auth-base
+	url = https://github.com/extvos/quick-auth-base.git
+[submodule "quick-auth-builtin"]
+	path = quick-auth-builtin
+	url = https://github.com/extvos/quick-auth-builtin.git
+[submodule "quick-auth-oauth2"]
+	path = quick-auth-oauth2
+	url = https://github.com/extvos/quick-auth-oauth2.git
+[submodule "quick-builtin-geo"]
+	path = quick-builtin-geo
+	url = https://github.com/extvos/quick-builtin-geo.git
+[submodule "quick-builtin-upload"]
+	path = quick-builtin-upload
+	url = https://github.com/extvos/quick-builtin-upload.git
+[submodule "quick-builtin-version"]
+	path = quick-builtin-version
+	url = https://github.com/extvos/quick-builtin-version.git
+[submodule "quick-lib-common"]
+	path = quick-lib-common
+	url = https://github.com/extvos/quick-lib-common.git
+[submodule "quick-lib-logging"]
+	path = quick-lib-logging
+	url = https://github.com/extvos/quick-lib-logging.git
+[submodule "quick-lib-restlet"]
+	path = quick-lib-restlet
+	url = https://github.com/extvos/quick-lib-restlet.git
+[submodule "quick-restlet-generator"]
+	path = quick-restlet-generator
+	url = https://github.com/extvos/quick-restlet-generator.git
+[submodule "quick-web-starter"]
+	path = quick-web-starter
+	url = https://github.com/extvos/quick-web-starter.git
