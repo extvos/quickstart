@@ -109,8 +109,8 @@ quick:
       salt-required: ${AUTH_SALT_REQUIRED:false}
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
     wechat:
-      app-id: ${WECHAT_APP_ID:wx01452e935078e443}
-      app-secret: ${WECHAT_APP_SECRET:f94afce4d4baafad153f7bcfc5313733}
+      app-id: ${WECHAT_APP_ID:123456}
+      app-secret: ${WECHAT_APP_SECRET:abcdefg}
       scope: ${WECHAT_SCOPE:snsapi_base}
       token: ${WECHAT_TOKEN:quick-wechat}
 
