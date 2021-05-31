@@ -21,6 +21,7 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("DEMO³ÌÐò")
             .apiInfo(apiInfo())
             .select()
             .apis(RequestHandlerSelectors.basePackage("org.extvos"))
@@ -30,7 +31,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title(getClass().getPackage().getImplementationTitle())
+                .title("DEMO³ÌÐò")
             .description("Last commit by " + GitProperties.get(GitProperties.USERNAME) + " (" +
                 GitProperties.get(GitProperties.COMMIT_MSG)
                 + ")  \n" +

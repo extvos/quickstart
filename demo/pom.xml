@@ -134,49 +134,7 @@
 
         <dependency>
             <groupId>org.extvos</groupId>
-            <artifactId>quick-auth-base</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-auth-oauth2</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-auth-builtin</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-builtin-upload</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.extvos</groupId>-->
-<!--            <artifactId>quick-builtin-geo</artifactId>-->
-<!--            <version>1.0.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-builtin-version</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-lib-restlet</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-lib-logging</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.extvos</groupId>
-            <artifactId>quick-lib-common</artifactId>
+            <artifactId>quick-web-starter</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
