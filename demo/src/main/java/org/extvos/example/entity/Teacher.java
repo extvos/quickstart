@@ -2,24 +2,22 @@ package org.extvos.example.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 
 /**
  * @author shenmc
  */
-@TableName("example_students")
+@TableName("example_teachers")
 @Data
-public class Student {
+@ApiModel("教师信息")
+public class Teacher {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)
-    private Long id;
+    private Integer id;
 
-    @NotBlank
     private String name;
 
     private String gender;
@@ -28,8 +26,6 @@ public class Student {
 
     private String familyName;
 
-    @Max(100)
-    @Min(1)
     private Integer age;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

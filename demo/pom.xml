@@ -19,6 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>
@@ -103,6 +104,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+            <version>1.0-rc2</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
@@ -132,9 +140,70 @@
             <version>8.2.1</version>
         </dependency>
 
+        <!-- quick modules -->
         <dependency>
             <groupId>org.extvos</groupId>
-            <artifactId>quick-web-starter</artifactId>
+            <artifactId>quick-builtin-version</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-geo</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-upload</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-quartz</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-async</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-lib-restlet</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-lib-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-lib-logging</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-auth-builtin</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-auth-oauth2</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-auth-base</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -144,13 +213,120 @@
             <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+            <!--代码混淆-->
+<!--            <plugin>-->
+<!--                <groupId>com.github.wvengen</groupId>-->
+<!--                <artifactId>proguard-maven-plugin</artifactId>-->
+<!--                <version>2.3.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>proguard</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <proguardVersion>6.0.3</proguardVersion>-->
+<!--                    <injar>${project.build.finalName}.jar</injar>-->
+<!--                    &lt;!&ndash; <injar>classes</injar> &ndash;&gt;-->
+<!--                    <outjar>${project.build.finalName}.jar</outjar>-->
+<!--                    <obfuscate>true</obfuscate>-->
+<!--                    <options>-->
+<!--                        &lt;!&ndash;  ##默认是开启的，这里关闭shrink，即不删除没有使用的类/成员&ndash;&gt;-->
+<!--                        <option>-dontshrink</option>-->
+<!--                        &lt;!&ndash; ##默认是开启的，这里关闭字节码级别的优化&ndash;&gt;-->
+<!--                        <option>-dontoptimize</option>-->
+<!--                        &lt;!&ndash;##对于类成员的命名的混淆采取唯一策略&ndash;&gt;-->
+<!--                        <option>-useuniqueclassmembernames</option>-->
+<!--                        &lt;!&ndash;- 混淆类名之后，对使用Class.forName('className')之类的地方进行相应替代&ndash;&gt;-->
+<!--                        <option>-adaptclassstrings</option>-->
+<!--                        <option>-ignorewarnings</option>-->
+<!--                        &lt;!&ndash; 混淆时不生成大小写混合的类名，默认是可以大小写混合&ndash;&gt;-->
+<!--                        <option>-dontusemixedcaseclassnames</option>-->
+<!--                        &lt;!&ndash; This option will replace all strings in reflections method invocations with new class names.-->
+<!--                             For example, invokes Class.forName('className')&ndash;&gt;-->
+<!--                        &lt;!&ndash; <option>-adaptclassstrings</option> &ndash;&gt;-->
+<!--                        &lt;!&ndash; This option will save all original annotations and etc. Otherwise all we be removed from files.&ndash;&gt;-->
+<!--                        &lt;!&ndash; 不混淆所有特殊的类&ndash;&gt;-->
+<!--                        <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,-->
+<!--                            SourceFile,LineNumberTable,*Annotation*,EnclosingMethod-->
+<!--                        </option>-->
+<!--                        &lt;!&ndash; This option will save all original names in interfaces (without obfuscate).&ndash;&gt;-->
+<!--                        <option>-keepnames interface **</option>-->
+<!--                        &lt;!&ndash; This option will save all original methods parameters in files defined in -keep sections,-->
+<!--                             otherwise all parameter names will be obfuscate.&ndash;&gt;-->
+<!--                        <option>-keepparameternames</option>-->
+<!--                        &lt;!&ndash; <option>-libraryjars **</option> &ndash;&gt;-->
+<!--                        &lt;!&ndash; This option will save all original class files (without obfuscate) but obfuscate all in domain package.&ndash;&gt;-->
+<!--                        &lt;!&ndash;<option>-keep class !com.slm.proguard.example.spring.boot.domain.** { *; }</option>&ndash;&gt;-->
+<!--                        <option>-keep class !com.dsys.project.** { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.App { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.config.** { *; }</option>-->
+<!--                        &lt;!&ndash;保留不然Mybatis报错&ndash;&gt;-->
+<!--                        <option>-keep class com.dsys.project.entity.** { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.utils.PageRes { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.controller.** { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.mp.controller.** { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.mp.config.** { *; }</option>-->
+<!--                        <option>-keep class com.dsys.project.dto.** { *; }</option>-->
+<!--                        <option>-keep class * implements java.io.Serializable</option>-->
+<!--                        &lt;!&ndash; This option will save all original class files (without obfuscate) in service package&ndash;&gt;-->
+<!--                        &lt;!&ndash;<option>-keep class com.slm.proguard.example.spring.boot.service { *; }</option>&ndash;&gt;-->
+<!--                        &lt;!&ndash; This option will save all original interfaces files (without obfuscate) in all packages.&ndash;&gt;-->
+<!--                        <option>-keep interface * extends * { *; }</option>-->
+<!--                        &lt;!&ndash; <option>-keep @org.springframework.stereotype.Service class *</option> &ndash;&gt;-->
+<!--                        &lt;!&ndash; This option will save all original defined annotations in all class in all packages.&ndash;&gt;-->
+<!--                        <option>-keepclassmembers class * {-->
+<!--                            &lt;!&ndash; @org.springframework.beans.factory.annotation.Autowired *; &ndash;&gt;-->
+<!--                            @org.springframework.beans.factory.annotation.Value *;-->
+<!--                            }-->
+<!--                        </option>-->
+<!--                    </options>-->
+<!--                    <libs>-->
+<!--                        &lt;!&ndash; Include main JAVA library required.&ndash;&gt;-->
+<!--                        <lib>${java.home}/lib/rt.jar</lib>-->
+<!--                    </libs>-->
+<!--                </configuration>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>net.sf.proguard</groupId>-->
+<!--                        <artifactId>proguard-base</artifactId>-->
+<!--                        <version>6.2.2</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
+            <plugin>
+                <groupId>org.extvos</groupId>
+                <artifactId>restlet-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <phase>compile</phase>-->
+                <!--                        <goals>-->
+                <!--                            <goal>gen</goal>-->
+                <!--                        </goals>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
+                <configuration>
+                    <packages>
+                        <package>
+                            <source>org.extvos.example</source>
+                            <prefix>/example</prefix>
+                            <readOnly>true</readOnly>
+                        </package>
+                    </packages>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.4</version>
             </plugin>
             <plugin>
                 <groupId>pl.project13.maven</groupId>

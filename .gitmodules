@@ -31,3 +31,12 @@
 [submodule "quick-web-starter"]
 	path = quick-web-starter
 	url = https://github.com/extvos/quick-web-starter.git
+[submodule "quick-lib-mqtt"]
+	path = quick-lib-mqtt
+	url = https://github.com/extvos/quick-lib-mqtt.git
+[submodule "quick-builtin-async"]
+	path = quick-builtin-async
+	url = https://github.com/extvos/quick-builtin-async.git
+[submodule "quick-builtin-quartz"]
+	path = quick-builtin-quartz
+	url = https://github.com/extvos/quick-builtin-quartz.git

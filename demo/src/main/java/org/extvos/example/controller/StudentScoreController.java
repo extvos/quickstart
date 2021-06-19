@@ -1,7 +1,7 @@
 package org.extvos.example.controller;
 
-import org.extvos.example.entity.Student;
-import org.extvos.example.service.StudentService;
+import org.extvos.example.entity.StudentScore;
+import org.extvos.example.service.StudentScoreService;
 import org.extvos.restlet.controller.BaseController;
 import org.extvos.restlet.controller.BaseROController;
 import io.swagger.annotations.Api;
@@ -11,25 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * 学生信息
+ * 学生成绩
  *
  * @author Quick Lab
  */
 @RestController
-@RequestMapping("/example/student")
-@Api(tags = {"学生信息"})
-public class StudentController extends BaseController<Student, StudentService> {
+@RequestMapping("/example/student-score")
+@Api(tags = {"学生成绩"})
+public class StudentScoreController extends BaseController<StudentScore, StudentScoreService> {
 
     @Autowired
-    private StudentService myService;
+    private StudentScoreService myService;
 
     @Override
-    public StudentService getService() {
+    public StudentScoreService getService() {
         return myService;
     }
 
-    @Override
-    public String[] defaultExcludes() {
-        return new String[]{"age"};
-    }
 }

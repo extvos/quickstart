@@ -8,19 +8,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class QuickFilterCustomizerImpl implements QuickFilterCustomizer {
+    private String ctxPath = System.getProperty("server.servlet.context-path") == null ? "" : System.getProperty("server.servlet.context-path");
+
     @Override
     public String[] anons() {
         return new String[]{
-            "/anons/1",
-            "/anons/2"
+                ctxPath + "/" + "example/**"
         };
     }
 
     @Override
     public String[] auths() {
-        return new String[]{
-            "/auths/1",
-            "/auths/2"
-        };
+        return new String[]{};
     }
 }

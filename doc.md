@@ -8,6 +8,7 @@
   - [`quick-lib-common` 通用基础工具类](quick-lib-common/README.md)
   - [`quick-lib-restlet` 通用增删查改实现套件](quick-lib-restlet/README.md)
   - [`quick-lib-logging` 日志库](quick-lib-logging/README.md)
+  - [`quick-lib-mqtt` MQTT消息处理封装（待实现）](quick-lib-mqtt/README.md)
 - 用户鉴权认证相关
   - [`quick-auth-base` 基础用户认证实现](quick-auth-base/README.md)
   - [`quick-auth-oauth2` 单点登录实现](quick-auth-oauth2/README.md)
@@ -16,6 +17,8 @@
   - [`quick-builtin-version` 内置版本接口服务](quick-builtin-version/README.md)
   - [`quick-builtin-geo` 内置地址接口服务](quick-builtin-geo/README.md)
   - [`quick-builtin-upload` 内置文件上传服务](quick-builtin-upload/README.md)
+  - [`quick-builtin-async` 异步接口任务处理](quick-builtin-async/README.md)
+  - [`quick-builtin-quartz` 定时任务处理](quick-builtin-quartz/README.md)
 
 ## 套件基于以下第三方库
 
@@ -144,4 +147,15 @@
 
   
 
-- 
+- Caffeine
+
+  ```xml
+  <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
+      <version>2.9.1</version>
+  </dependency>
+  ```
+
+  
+

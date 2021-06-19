@@ -6,7 +6,7 @@
 
 1. 获取项目代码
 ```shell
-$ git clone https://github.com/extvos/quickstart.git
+$ git clone https://gitlab.inodes.cn/quickstart/quick-java-devel.git
 ```
 
 2. 更新模块代码
@@ -22,6 +22,7 @@ $ git submodule foreach git checkout develop
     - `quick-lib-common` 通用公共库
     - `quick-lib-restlet` Restful 增删查改库
     - `quick-lib-logging` 日志库
+    - `quick-lib-mqtt` MQTT消息处理封装（待实现）
 - `org.extvos.auth` 鉴权认证库
     - `quick-auth-base` 鉴权认证基础（Shiro）
     - `quick-auth-oauth2` OAuth2认证鉴权支持
@@ -30,6 +31,8 @@ $ git submodule foreach git checkout develop
     - `quick-builtin-version` 内置版本信息服务
     - `quick-builtin-geo` 内置地理信息服务
     - `quick-builtin-upload` 内置文件上传服务
+    - `quick-builtin-async` 异步接口任务处理
+    - `quick-builtin-quartz` 定时任务处理
 - `demo` 一个样例工程
 
 ## 约定

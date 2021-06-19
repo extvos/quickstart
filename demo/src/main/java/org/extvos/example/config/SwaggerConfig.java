@@ -1,6 +1,6 @@
 package org.extvos.example.config;
 
-import org.extvos.builtin.config.GitProperties;
+import org.extvos.builtin.version.config.GitProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -21,24 +21,24 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("DEMO≥Ã–Ú")
-            .apiInfo(apiInfo())
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("org.extvos"))
-            .paths(PathSelectors.any())
-            .build();
+                .groupName("DEMOÁ®ãÂ∫è")
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("org.extvos.example"))
+                .paths(PathSelectors.any())
+                .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("DEMO≥Ã–Ú")
-            .description("Last commit by " + GitProperties.get(GitProperties.USERNAME) + " (" +
-                GitProperties.get(GitProperties.COMMIT_MSG)
-                + ")  \n" +
-                "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
-                + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
-            .termsOfServiceUrl("http://github.com/extvos")
-            .version(getClass().getPackage().getImplementationVersion())
-            .build();
+                .title("DEMOÁ®ãÂ∫è")
+                .description("Last commit by " + GitProperties.get(GitProperties.USERNAME) + " (" +
+                        GitProperties.get(GitProperties.COMMIT_MSG)
+                        + ")  \n" +
+                        "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
+                        + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
+                .termsOfServiceUrl("http://www.inodes.cn")
+                .version(getClass().getPackage().getImplementationVersion())
+                .build();
     }
 }
