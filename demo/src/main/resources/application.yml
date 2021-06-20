@@ -46,7 +46,7 @@ spring:
       filters: stat
       driver-class-name: com.mysql.cj.jdbc.Driver
       #配置基本属性
-      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:b2bmall}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:testdb}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: ${MYSQL_USERNAME:root}
       password: ${MYSQL_PASSWORD:root}
       #配置初始化大小/最小/最大
@@ -102,7 +102,7 @@ quick:
       full-access: true
       separator: ' '
   auth:
-    base-url: ${AUTH_BASE_URL:http://shenmc.dev.inodes.cn}
+    base-url: ${AUTH_BASE_URL:http://dev.extvos.org}
     base:
       register-allowed: ${AUTH_REGISTER_ALLOWED:true}
       auto-register: ${AUTH_AUTO_REGISTER:false}
@@ -110,8 +110,8 @@ quick:
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
       phone-required: ${AUTH_PHONE_REQUIRED:false}
     wechat:
-      app-id: ${WECHAT_APP_ID:wxb8c0c71f146a797b}
-      app-secret: ${WECHAT_APP_SECRET:ab46c540d2c824a0cb215c5b0c9c991b}
+      app-id: ${WECHAT_APP_ID:xxxxxx}
+      app-secret: ${WECHAT_APP_SECRET:xxxxxxx}
       scope: ${WECHAT_SCOPE:snsapi_base}
       token: ${WECHAT_TOKEN:quick-wechat}
 
@@ -123,13 +123,13 @@ asyncconfig:
 logging:
   file: ${LOG_FILENAME:/var/log/dev-example.log}
   level:
-    com.inodes: ${LOG_LEVEL:info}
-    com.inodes.thread: ${LOG_LEVEL_THREAD:info}
-    com.inodes.restlet: debug
-    com.inodes.common: debug
-    com.inodes.auth: debug
-    com.inodes.builtin: debug
-    com.inodes.example: debug
+    org.extvos: ${LOG_LEVEL:info}
+    org.extvos.thread: ${LOG_LEVEL_THREAD:info}
+    org.extvos.restlet: debug
+    org.extvos.common: debug
+    org.extvos.auth: debug
+    org.extvos.builtin: debug
+    org.extvos.example: debug
 #    logging.level.org.hibernate.SQL: DEBUG
 #    logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
@@ -144,18 +144,16 @@ videos:
   urlPrefix: ${VIDEO_URL_PREFIX:/videos/uploaded}
 
 aliyun-oss:
-  accessId: ${OSSACCESSKEYID:LTAI1RVJGXVZ4J97}
-  accessSecret: ${OSSACCESSKEYSECRET:H9oWxeJ2EBP1O9BzLrSbauB6iJQgy3}
+  accessId: ${OSSACCESSKEYID:xxxxxxx}
+  accessSecret: ${OSSACCESSKEYSECRET:xxxxxxxxx}
 
 wxpay:
   appId: ${WXPAY_APPID:12345676}
   appSecret: ${WXPAY_APPSECRET:1234567}
 
-#imageurl: ${IMAGE_URL_PREFIX:https://malldemo.inodes.cn/platform/}
-#uploadPath: ${UPLOAD_PATH:/home/data/workfile/}
 excelPath: ${EXCEL_PATH:/home/data/workfile/excel}
 
-ossAccessKeyId: ${OSSACCESSKEYID:LTAI1RVJGXVZ4J97}
-ossAccessKeySecret: ${OSSACCESSKEYSECRET:H9oWxeJ2EBP1O9BzLrSbauB6iJQgy3}
-signName: ${SIGN_NAME:易联网络}
-templateCode: ${TEMPLATE_CODE:SMS_151575296}
+ossAccessKeyId: ${OSSACCESSKEYID:xxxxx}
+ossAccessKeySecret: ${OSSACCESSKEYSECRET:xxxxxx}
+signName: ${SIGN_NAME:EXTVOS}
+templateCode: ${TEMPLATE_CODE:xxxxx}

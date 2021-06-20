@@ -37,7 +37,7 @@ public class SwaggerConfig {
                         + ")  \n" +
                         "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
                         + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
-                .termsOfServiceUrl("http://www.inodes.cn")
+                .termsOfServiceUrl("http://www.extvos.org")
                 .version(getClass().getPackage().getImplementationVersion())
                 .build();
     }

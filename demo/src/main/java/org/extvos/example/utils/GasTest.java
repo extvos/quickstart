@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GasTest {
-    private static final String serverUrl1 = "http://gascylinder.inodes.cn/platform/thirdParty/reportGasBottles";
+    private static final String serverUrl1 = "http://test.extvos.org/platform/thirdParty/reportGasBottles";
     private static final String serverUrl2 = "http://localhost:8083/dev/example/test1";
     private static final String serverUrl3 = "http://localhost:9083/thirdParty/reportGasBottles";
 

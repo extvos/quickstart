@@ -6,7 +6,7 @@
 
 1. 获取项目代码
 ```shell
-$ git clone https://gitlab.inodes.cn/quickstart/quick-java-devel.git
+$ git clone https://github.com/extvos/quickstart.git
 ```
 
 2. 更新模块代码
