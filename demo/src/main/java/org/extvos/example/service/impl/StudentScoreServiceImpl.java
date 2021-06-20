@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * 学生成绩
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 @Service
 public class StudentScoreServiceImpl extends BaseServiceImpl<StudentScoreMapper, StudentScore> implements StudentScoreService {

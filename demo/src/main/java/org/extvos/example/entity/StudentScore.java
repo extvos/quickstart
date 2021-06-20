@@ -7,7 +7,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @TableName("example_student_scores")
 @Data

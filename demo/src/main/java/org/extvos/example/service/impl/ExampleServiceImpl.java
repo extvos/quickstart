@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @Service
 public class ExampleServiceImpl implements ExampleService {

@@ -6,7 +6,7 @@ import org.extvos.example.entity.Student;
 import java.sql.Date;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 public class StudentVO {
     private String name;

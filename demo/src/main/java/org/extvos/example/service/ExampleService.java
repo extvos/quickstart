@@ -1,7 +1,7 @@
 package org.extvos.example.service;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 public interface ExampleService {
     /**

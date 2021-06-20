@@ -6,7 +6,7 @@ import org.extvos.example.entity.Student;
 /**
  * 学生信息
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 public interface StudentMapper extends BaseMapper<Student> {
 }

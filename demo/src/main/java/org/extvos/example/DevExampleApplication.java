@@ -31,7 +31,7 @@ import java.util.List;
 
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @EntityScan(value = {"org.extvos.example.entity"})
 @MapperScan("org.extvos.example.mapper")

@@ -8,7 +8,7 @@ import lombok.Data;
 import java.sql.Date;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @TableName("example_teachers")
 @Data

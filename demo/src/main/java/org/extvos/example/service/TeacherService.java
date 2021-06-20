@@ -6,7 +6,7 @@ import org.extvos.restlet.service.BaseService;
 /**
  * 教师信息
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 public interface TeacherService extends BaseService<Teacher> {
 }

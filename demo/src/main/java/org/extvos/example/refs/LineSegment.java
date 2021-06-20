@@ -1,7 +1,7 @@
 package org.extvos.example.refs;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 public class LineSegment {
     Point first;

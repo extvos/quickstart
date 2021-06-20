@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @TableName("example_students")
 @Data

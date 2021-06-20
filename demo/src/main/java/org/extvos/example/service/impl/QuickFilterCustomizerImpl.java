@@ -4,7 +4,7 @@ import org.extvos.auth.service.QuickFilterCustomizer;
 import org.springframework.stereotype.Service;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 @Service
 public class QuickFilterCustomizerImpl implements QuickFilterCustomizer {

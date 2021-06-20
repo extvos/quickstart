@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * 教师信息
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 @Service
 public class TeacherServiceImpl extends BaseServiceImpl<TeacherMapper, Teacher> implements TeacherService {

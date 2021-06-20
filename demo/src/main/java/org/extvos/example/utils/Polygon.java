@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author shenmc
+ * @author Mingcai SHEN
  */
 public class Polygon {
     static class Point {

@@ -6,7 +6,7 @@ import org.extvos.restlet.service.BaseService;
 /**
  * 学生成绩
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 public interface StudentScoreService extends BaseService<StudentScore> {
 }

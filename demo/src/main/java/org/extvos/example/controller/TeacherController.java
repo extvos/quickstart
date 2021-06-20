@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 教师信息
  *
- * @author Quick Lab
+ * @author Mingcai SHEN
  */
 @RestController
 @RequestMapping("/example/teacher")
