@@ -11,33 +11,33 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-auth-oauth2.git -->
+        <!-- https://github.com/extvos/quick-auth-oauth2.git -->
         <module>quick-auth-oauth2</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-auth-builtin.git -->
+        <!-- https://github.com/extvos/quick-auth-builtin.git -->
         <module>quick-auth-builtin</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-auth-base.git -->
+        <!-- https://github.com/extvos/quick-auth-base.git -->
         <module>quick-auth-base</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-builtin-geo.git -->
+        <!-- https://github.com/extvos/quick-builtin-geo.git -->
         <module>quick-builtin-geo</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-builtin-version.git -->
+        <!-- https://github.com/extvos/quick-builtin-version.git -->
         <module>quick-builtin-version</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-lib-restlet.git -->
+        <!-- https://github.com/extvos/quick-lib-restlet.git -->
         <module>quick-lib-restlet</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-lib-logging.git -->
+        <!-- https://github.com/extvos/quick-lib-logging.git -->
         <module>quick-lib-logging</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-lib-common.git -->
+        <!-- https://github.com/extvos/quick-lib-common.git -->
         <module>quick-lib-common</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-lib-mqtt.git -->
+        <!-- https://github.com/extvos/quick-lib-mqtt.git -->
         <module>quick-lib-mqtt</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-builtin-upload.git -->
+        <!-- https://github.com/extvos/quick-builtin-upload.git -->
         <module>quick-builtin-upload</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-builtin-quartz.git -->
+        <!-- https://github.com/extvos/quick-builtin-quartz.git -->
         <module>quick-builtin-quartz</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-builtin-async.git -->
+        <!-- https://github.com/extvos/quick-builtin-async.git -->
         <module>quick-builtin-async</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-web-starter.git -->
+        <!-- https://github.com/extvos/quick-web-starter.git -->
         <module>quick-web-starter</module>
-        <!-- https://github.com/quickstart/java-scaffolds/quick-restlet-generator.git -->
+        <!-- https://github.com/extvos/quick-restlet-generator.git -->
         <module>quick-restlet-generator</module>
 
         <module>demo</module>
