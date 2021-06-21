@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.extvos.app</groupId>
+    <groupId>io.github.extvos.app</groupId>
     <artifactId>quick-demo-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>quick-demo</name>
@@ -142,67 +142,67 @@
 
         <!-- quick modules -->
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-version</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-geo</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-upload</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-quartz</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-async</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-restlet</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-logging</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-builtin</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-oauth2</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.extvos</groupId>
+            <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-base</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
@@ -302,7 +302,7 @@
 <!--                </dependencies>-->
 <!--            </plugin>-->
             <plugin>
-                <groupId>org.extvos</groupId>
+                <groupId>io.github.extvos</groupId>
                 <artifactId>restlet-maven-plugin</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <!--                <executions>-->
@@ -316,7 +316,7 @@
                 <configuration>
                     <packages>
                         <package>
-                            <source>org.extvos.example</source>
+                            <source>io.github.extvos.example</source>
                             <prefix>/example</prefix>
                             <readOnly>true</readOnly>
                         </package>
