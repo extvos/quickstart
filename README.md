@@ -18,16 +18,16 @@ $ git submodule foreach git checkout develop
 
 ## 模块列表
 
-- `org.extvos.common` 通用库
+- `plus.extvos.common` 通用库
     - `quick-lib-common` 通用公共库
     - `quick-lib-restlet` Restful 增删查改库
     - `quick-lib-logging` 日志库
     - `quick-lib-mqtt` MQTT消息处理封装（待实现）
-- `org.extvos.auth` 鉴权认证库
+- `plus.extvos.auth` 鉴权认证库
     - `quick-auth-base` 鉴权认证基础（Shiro）
     - `quick-auth-oauth2` OAuth2认证鉴权支持
     - `quich-auth-builtin` 本地认证鉴权支持
-- `org.extvos.builtin` 内置服务
+- `plus.extvos.builtin` 内置服务
     - `quick-builtin-version` 内置版本信息服务
     - `quick-builtin-geo` 内置地理信息服务
     - `quick-builtin-upload` 内置文件上传服务

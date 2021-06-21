@@ -123,13 +123,13 @@ asyncconfig:
 logging:
   file: ${LOG_FILENAME:/var/log/dev-example.log}
   level:
-    org.extvos: ${LOG_LEVEL:info}
-    org.extvos.thread: ${LOG_LEVEL_THREAD:info}
-    org.extvos.restlet: debug
-    org.extvos.common: debug
-    org.extvos.auth: debug
-    org.extvos.builtin: debug
-    org.extvos.example: debug
+    plus.extvos: ${LOG_LEVEL:info}
+    plus.extvos.thread: ${LOG_LEVEL_THREAD:info}
+    plus.extvos.restlet: debug
+    plus.extvos.common: debug
+    plus.extvos.auth: debug
+    plus.extvos.builtin: debug
+    plus.extvos.example: debug
 #    logging.level.org.hibernate.SQL: DEBUG
 #    logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
