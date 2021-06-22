@@ -144,67 +144,67 @@
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-version</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-geo</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-upload</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-quartz</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-async</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-restlet</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-logging</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-builtin</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-oauth2</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-base</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
@@ -304,7 +304,7 @@
             <plugin>
                 <groupId>io.github.extvos</groupId>
                 <artifactId>restlet-maven-plugin</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.0</version>
                 <!--                <executions>-->
                 <!--                    <execution>-->
                 <!--                        <phase>compile</phase>-->

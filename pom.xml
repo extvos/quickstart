@@ -9,7 +9,7 @@
     <name>QUICK-JAVA-DEVEL</name>
     <description>QUICK脚手架套件开发</description>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <modules>
         <!-- https://github.com/extvos/quick-auth-oauth2.git -->
         <module>quick-auth-oauth2</module>
