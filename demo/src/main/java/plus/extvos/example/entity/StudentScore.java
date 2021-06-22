@@ -3,6 +3,7 @@ package plus.extvos.example.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import plus.extvos.restlet.annotation.Restlet;
 
 import java.sql.Timestamp;
 
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
  */
 @TableName("example_student_scores")
 @Data
+@Restlet(deletable = false)
 public class StudentScore {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)

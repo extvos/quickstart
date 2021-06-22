@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import plus.extvos.restlet.annotation.Restlet;
 
 import java.sql.Date;
 
@@ -13,6 +14,7 @@ import java.sql.Date;
 @TableName("example_teachers")
 @Data
 @ApiModel("教师信息")
+@Restlet(readable = false)
 public class Teacher {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)

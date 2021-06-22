@@ -3,6 +3,8 @@ package plus.extvos.example.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.apache.ibatis.type.JdbcType;
+import plus.extvos.restlet.annotation.Restlet;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -14,12 +16,14 @@ import java.sql.Date;
  */
 @TableName("example_students")
 @Data
+@Restlet(deletable = false,updatable = false)
 public class Student {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)
     private Long id;
 
     @NotBlank
+    @TableField(value = "name", jdbcType = JdbcType.VARCHAR)
     private String name;
 
     private String gender;

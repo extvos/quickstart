@@ -19,6 +19,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import plus.extvos.example.entity.Teacher;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.sql.DataSource;
@@ -60,6 +61,7 @@ public class DevExampleApplication implements ApplicationRunner {
         String[] tableNames = new String[]{
                 Student.class.getAnnotation(TableName.class).value(),
                 StudentScore.class.getAnnotation(TableName.class).value(),
+                Teacher.class.getAnnotation(TableName.class).value(),
         };
         for (int i = 0; i < tableNames.length; i++) {
             tableNames[i] = "'" + tableNames[i] + "'";
@@ -70,7 +72,7 @@ public class DevExampleApplication implements ApplicationRunner {
         int n = rs.getInt(1);
         rs.close();
         if (n < tableNames.length) {
-            String[] sqlFiles = {"sql/1.students.sql", "sql/2.student-scores.sql"};
+            String[] sqlFiles = {"sql/1.students.sql", "sql/2.student-scores.sql","sql/3.teachers.sql"};
             for (String path : sqlFiles) {
                 Reader reader = Resources.getResourceAsReader(path);
                 //执行SQL脚本
