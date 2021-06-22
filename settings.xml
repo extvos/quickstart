@@ -23,6 +23,20 @@
                     </snapshots>
                 </repository>
             </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>github</id>
+                    <name>extvos github repo</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                    <url>https://maven.pkg.github.com/extvos/*</url>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
     </profiles>
 
