@@ -18,8 +18,10 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: snickerbockers/submodules-init@v4
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
