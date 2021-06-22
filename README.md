@@ -2,6 +2,8 @@
 
 本项目为`QUICK`脚手架的开发环境。 `quick-XXX`为各个脚手架模块项目，通过`git submodule`的方式引入；`demo`为简单演示应用项目。
 
+[![Maven Package](https://github.com/extvos/quickstart/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/extvos/quickstart/actions/workflows/maven-publish.yml)
+
 ## 开始
 
 1. 获取项目代码
