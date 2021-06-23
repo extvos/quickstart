@@ -59,7 +59,7 @@ public class ThymeleafController {
         log.debug("ThymeleafController::profile > username: {}", username);
         UserInfo user = quickAuthService.getUserByName(username, false);
         if (user != null) {
-            log.debug("ThymeleafController::profile > {}, {}", user.getId(), user.getUsername());
+            log.debug("ThymeleafController::profile > {}, {}", user.getUserId(), user.getUsername());
             model.addAttribute("profile", user);
         }
         return "profile";
