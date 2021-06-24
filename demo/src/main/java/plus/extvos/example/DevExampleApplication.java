@@ -2,23 +2,22 @@ package plus.extvos.example;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import plus.extvos.builtin.geo.entity.Address;
-import plus.extvos.builtin.geo.service.AddressService;
-import plus.extvos.common.pinyin.Pinyin;
-import plus.extvos.example.entity.Student;
-import plus.extvos.example.entity.StudentScore;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import plus.extvos.builtin.geo.entity.Address;
+import plus.extvos.builtin.geo.service.AddressService;
+import plus.extvos.common.pinyin.Pinyin;
+import plus.extvos.example.entity.Student;
+import plus.extvos.example.entity.StudentScore;
 import plus.extvos.example.entity.Teacher;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -27,7 +26,6 @@ import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -59,9 +57,9 @@ public class DevExampleApplication implements ApplicationRunner {
         ScriptRunner runner = new ScriptRunner(conn);
         runner.setLogWriter(dataSource.getLogWriter());
         String[] tableNames = new String[]{
-                Student.class.getAnnotation(TableName.class).value(),
-                StudentScore.class.getAnnotation(TableName.class).value(),
-                Teacher.class.getAnnotation(TableName.class).value(),
+            Student.class.getAnnotation(TableName.class).value(),
+            StudentScore.class.getAnnotation(TableName.class).value(),
+            Teacher.class.getAnnotation(TableName.class).value(),
         };
         for (int i = 0; i < tableNames.length; i++) {
             tableNames[i] = "'" + tableNames[i] + "'";
@@ -72,7 +70,7 @@ public class DevExampleApplication implements ApplicationRunner {
         int n = rs.getInt(1);
         rs.close();
         if (n < tableNames.length) {
-            String[] sqlFiles = {"sql/1.students.sql", "sql/2.student-scores.sql","sql/3.teachers.sql"};
+            String[] sqlFiles = {"sql/1.students.sql", "sql/2.student-scores.sql", "sql/3.teachers.sql"};
             for (String path : sqlFiles) {
                 Reader reader = Resources.getResourceAsReader(path);
                 //执行SQL脚本
@@ -102,7 +100,7 @@ public class DevExampleApplication implements ApplicationRunner {
                     addr.setPinyin(py.translateNoMark(addr.getName()));
                     addr.setPinyinInitial(py.translateFirstChar(addr.getName()));
                     System.out.println(">> Update " + addr.getId() + " " + addr.getName() +
-                            " -> " + addr.getPinyin() + "," + addr.getPinyinInitial());
+                        " -> " + addr.getPinyin() + "," + addr.getPinyinInitial());
                     addressService.updateById(addr.getId(), addr);
                 }
             }

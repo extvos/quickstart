@@ -1,14 +1,5 @@
 package plus.extvos.example.controller;
 
-import plus.extvos.auth.annotation.SessionUser;
-import plus.extvos.builtin.async.dto.AsyncTask;
-import plus.extvos.builtin.async.service.AsyncRunnable;
-import plus.extvos.builtin.async.service.AsyncTaskRunner;
-import plus.extvos.example.service.ExampleService;
-import plus.extvos.logging.annotation.Log;
-import plus.extvos.restlet.Result;
-import plus.extvos.restlet.annotation.Limit;
-import plus.extvos.restlet.exception.RestletException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -18,6 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
+import plus.extvos.auth.annotation.SessionUser;
+import plus.extvos.builtin.async.dto.AsyncTask;
+import plus.extvos.builtin.async.service.AsyncTaskRunner;
+import plus.extvos.example.service.ExampleService;
+import plus.extvos.logging.annotation.Log;
+import plus.extvos.restlet.Result;
+import plus.extvos.restlet.annotation.Limit;
+import plus.extvos.restlet.exception.RestletException;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -91,7 +90,7 @@ public class ExampleController {
     }
 
     @GetMapping("/example/async")
-    public Result<AsyncTask> exampleAsync(@Valid  @RequestParam("duration") int duration) throws RestletException {
+    public Result<AsyncTask> exampleAsync(@Valid @RequestParam("duration") int duration) throws RestletException {
         AsyncTask t = asyncTaskRunner.make((ai) -> {
             try {
                 for (int i = 1; i <= duration; i++) {

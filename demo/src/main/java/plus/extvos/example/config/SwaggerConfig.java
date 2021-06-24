@@ -1,8 +1,8 @@
 package plus.extvos.example.config;
 
-import plus.extvos.builtin.version.config.GitProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import plus.extvos.builtin.version.config.GitProperties;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -21,24 +21,24 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("DEMO程序")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("plus.extvos.example"))
-                .paths(PathSelectors.any())
-                .build();
+            .groupName("DEMO程序")
+            .apiInfo(apiInfo())
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("plus.extvos.example"))
+            .paths(PathSelectors.any())
+            .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("DEMO程序")
-                .description("Last commit by " + GitProperties.get(GitProperties.USERNAME) + " (" +
-                        GitProperties.get(GitProperties.COMMIT_MSG)
-                        + ")  \n" +
-                        "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
-                        + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
-                .termsOfServiceUrl("http://www.extvos.org")
-                .version(getClass().getPackage().getImplementationVersion())
-                .build();
+            .title("DEMO程序")
+            .description("Last commit by " + GitProperties.get(GitProperties.USERNAME) + " (" +
+                GitProperties.get(GitProperties.COMMIT_MSG)
+                + ")  \n" +
+                "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
+                + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
+            .termsOfServiceUrl("http://www.extvos.org")
+            .version(getClass().getPackage().getImplementationVersion())
+            .build();
     }
 }

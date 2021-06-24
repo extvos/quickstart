@@ -1,7 +1,7 @@
 package plus.extvos.example.service.impl;
 
-import plus.extvos.auth.service.QuickFilterCustomizer;
 import org.springframework.stereotype.Service;
+import plus.extvos.auth.service.QuickFilterCustomizer;
 
 /**
  * @author Mingcai SHEN
@@ -13,7 +13,7 @@ public class QuickFilterCustomizerImpl implements QuickFilterCustomizer {
     @Override
     public String[] anons() {
         return new String[]{
-                ctxPath + "/" + "example/**"
+            ctxPath + "/" + "example/**"
         };
     }
 
