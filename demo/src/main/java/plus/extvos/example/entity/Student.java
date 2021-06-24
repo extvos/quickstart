@@ -16,7 +16,7 @@ import java.sql.Date;
  */
 @TableName("example_students")
 @Data
-@Restlet(deletable = false,updatable = false)
+@Restlet(deletable = false, updatable = false)
 public class Student {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)

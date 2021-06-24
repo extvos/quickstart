@@ -1,10 +1,10 @@
 package plus.extvos.example.service.impl;
 
-import plus.extvos.example.service.ExampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import plus.extvos.example.service.ExampleService;
 
 /**
  * @author Mingcai SHEN

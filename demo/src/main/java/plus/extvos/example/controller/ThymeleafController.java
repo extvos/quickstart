@@ -1,10 +1,5 @@
 package plus.extvos.example.controller;
 
-import plus.extvos.auth.annotation.SessionUser;
-import plus.extvos.auth.dto.UserInfo;
-import plus.extvos.auth.service.ProviderService;
-import plus.extvos.auth.service.QuickAuthService;
-import plus.extvos.restlet.exception.RestletException;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -13,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import plus.extvos.auth.annotation.SessionUser;
+import plus.extvos.auth.dto.UserInfo;
+import plus.extvos.auth.service.ProviderService;
+import plus.extvos.auth.service.QuickAuthService;
+import plus.extvos.restlet.exception.RestletException;
 
 /**
  * @author Mingcai SHEN
