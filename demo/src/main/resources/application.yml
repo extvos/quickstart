@@ -79,13 +79,20 @@ spring:
       min-idle: 0
     timeout: 1000
 
+  mqtt:
+    client-id: quick-demo
+    brokers: tcp://192.168.3.10:1883
+    username: emqx
+    password: public
+
+
 ### MyBatis 配置
 mybatis:
   mapper-locations: classpath:/mapper/*Mapper.xml
 
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
 
 quick:
   restlet:
@@ -125,35 +132,11 @@ logging:
   level:
     plus.extvos: ${LOG_LEVEL:info}
     plus.extvos.thread: ${LOG_LEVEL_THREAD:info}
-    plus.extvos.restlet: debug
-    plus.extvos.common: debug
-    plus.extvos.auth: debug
-    plus.extvos.builtin: debug
+#    plus.extvos.restlet: debug
+#    plus.extvos.common: debug
+#    plus.extvos.auth: debug
+#    plus.extvos.builtin: debug
+    plus.extvos.mqtt: debug
     plus.extvos.example: debug
 #    logging.level.org.hibernate.SQL: DEBUG
 #    logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-
-images:
-  upload: ${IMAGE_UPLOAD_ROOT:/home/data/images/uploaded}
-  maxSize: ${IMAGE_MAX_SIZE:2M}
-  urlPrefix: ${IMAGE_URL_PREFIX:/images/uploaded}
-
-videos:
-  upload: ${VIDEO_UPLOAD_ROOT:/home/data/videos/uploaded}
-  maxSize: ${VIDEO_MAX_SIZE:20M}
-  urlPrefix: ${VIDEO_URL_PREFIX:/videos/uploaded}
-
-aliyun-oss:
-  accessId: ${OSSACCESSKEYID:xxxxxxx}
-  accessSecret: ${OSSACCESSKEYSECRET:xxxxxxxxx}
-
-wxpay:
-  appId: ${WXPAY_APPID:12345676}
-  appSecret: ${WXPAY_APPSECRET:1234567}
-
-excelPath: ${EXCEL_PATH:/home/data/workfile/excel}
-
-ossAccessKeyId: ${OSSACCESSKEYID:xxxxx}
-ossAccessKeySecret: ${OSSACCESSKEYSECRET:xxxxxx}
-signName: ${SIGN_NAME:EXTVOS}
-templateCode: ${TEMPLATE_CODE:xxxxx}
