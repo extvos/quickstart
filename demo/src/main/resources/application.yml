@@ -80,10 +80,10 @@ spring:
     timeout: 1000
 
   mqtt:
-    client-id: quick-demo
-    brokers: tcp://192.168.3.10:1883
-    username: emqx
-    password: public
+    client-id: ${MQTT_CLIENT_ID:quick-demo}
+    brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+    username: ${MQTT_USERNAME:emqx}
+    password: ${MQTT_PASSWORD:public}
 
 
 ### MyBatis 配置
