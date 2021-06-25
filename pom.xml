@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.extvos</groupId>
-    <artifactId>quick-java-devel</artifactId>
+    <artifactId>quickstart</artifactId>
     <name>QUICK-JAVA-DEVEL</name>
     <description>QUICK脚手架套件开发</description>
     <packaging>pom</packaging>
