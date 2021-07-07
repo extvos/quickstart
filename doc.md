@@ -8,7 +8,7 @@
   - [`quick-lib-common` 通用基础工具类](quick-lib-common/README.md)
   - [`quick-lib-restlet` 通用增删查改实现套件](quick-lib-restlet/README.md)
   - [`quick-lib-logging` 日志库](quick-lib-logging/README.md)
-  - [`quick-lib-mqtt` MQTT消息处理封装（待实现）](quick-lib-mqtt/README.md)
+  - [`quick-lib-mqtt` MQTT消息处理封装](quick-lib-mqtt/README.md)
 - 用户鉴权认证相关
   - [`quick-auth-base` 基础用户认证实现](quick-auth-base/README.md)
   - [`quick-auth-oauth2` 单点登录实现](quick-auth-oauth2/README.md)

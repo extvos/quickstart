@@ -24,7 +24,7 @@ $ git submodule foreach git checkout develop
     - `quick-lib-common` 通用公共库
     - `quick-lib-restlet` Restful 增删查改库
     - `quick-lib-logging` 日志库
-    - `quick-lib-mqtt` MQTT消息处理封装（待实现）
+    - `quick-lib-mqtt` MQTT消息处理封装
 - `plus.extvos.auth` 鉴权认证库
     - `quick-auth-base` 鉴权认证基础（Shiro）
     - `quick-auth-oauth2` OAuth2认证鉴权支持
