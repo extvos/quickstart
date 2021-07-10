@@ -40,3 +40,6 @@
 [submodule "quick-builtin-quartz"]
 	path = quick-builtin-quartz
 	url = https://github.com/extvos/quick-builtin-quartz.git
+[submodule "quick-lib-redis"]
+	path = quick-lib-redis
+	url = https://github.com/extvos/quick-lib-redis.git

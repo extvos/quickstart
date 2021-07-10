@@ -29,6 +29,8 @@
         <module>quick-lib-common</module>
         <!-- https://github.com/extvos/quick-lib-mqtt.git -->
         <module>quick-lib-mqtt</module>
+        <!-- https://github.com/extvos/quick-lib-redis.git -->
+        <module>quick-lib-redis</module>
         <!-- https://github.com/extvos/quick-builtin-upload.git -->
         <module>quick-builtin-upload</module>
         <!-- https://github.com/extvos/quick-builtin-quartz.git -->
@@ -41,6 +43,7 @@
         <module>quick-restlet-generator</module>
 
         <module>demo</module>
+
     </modules>
 
     <properties>
