@@ -17,6 +17,7 @@ import plus.extvos.logging.annotation.Log;
 import plus.extvos.mqtt.annotation.Payload;
 import plus.extvos.mqtt.annotation.TopicSubscribe;
 import plus.extvos.mqtt.publish.MqttPublisher;
+import plus.extvos.redis.service.QuickRedisService;
 import plus.extvos.restlet.Assert;
 import plus.extvos.restlet.Result;
 import plus.extvos.restlet.annotation.Limit;
@@ -42,6 +43,9 @@ public class ExampleController {
 
     @Autowired
     private AsyncTaskRunner asyncTaskRunner;
+
+    @Autowired
+    private QuickRedisService redisService;
 
     @Log
     @Limit(count = 10, period = 1)
@@ -90,7 +94,18 @@ public class ExampleController {
                 log.debug(">>>> {} = {}", k, v);
             });
         });
+        redisService.set("T:"+accessToken, data);
         return Result.data(data).success();
+    }
+
+    @GetMapping("/example/test1")
+    public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) {
+        Object v = redisService.get("T:"+accessToken);
+        if(null != v){
+            return Result.data(v).success();
+        }else{
+            throw RestletException.notFound();
+        }
     }
 
     @GetMapping("/example/async")
