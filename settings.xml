@@ -34,7 +34,7 @@
                         <enabled>true</enabled>
                         <updatePolicy>always</updatePolicy>
                     </snapshots>
-                    <url>https://maven.pkg.github.com/extvos/*</url>
+                    <url>https://maven.pkg.github.com/extvos/quickstart</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
