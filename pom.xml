@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.extvos</groupId>
-    <artifactId>quick-java-devel</artifactId>
+    <artifactId>quickstart</artifactId>
     <name>QUICK-JAVA-DEVEL</name>
     <description>QUICK脚手架套件开发</description>
     <packaging>pom</packaging>
@@ -29,6 +29,8 @@
         <module>quick-lib-common</module>
         <!-- https://github.com/extvos/quick-lib-mqtt.git -->
         <module>quick-lib-mqtt</module>
+        <!-- https://github.com/extvos/quick-lib-redis.git -->
+        <module>quick-lib-redis</module>
         <!-- https://github.com/extvos/quick-builtin-upload.git -->
         <module>quick-builtin-upload</module>
         <!-- https://github.com/extvos/quick-builtin-quartz.git -->
@@ -41,6 +43,7 @@
         <module>quick-restlet-generator</module>
 
         <module>demo</module>
+
     </modules>
 
     <properties>
@@ -50,4 +53,33 @@
         <maven.compiler.target>8</maven.compiler.target>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
+
+    <licenses>
+        <license>
+            <name>GNU GPL v3</name>
+            <url>https://www.gnu.org/licenses/gpl.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Mingcai SHEN</name>
+            <email>archsh@gmail.com</email>
+            <organization>Shenzhen Cygnux Technologies Ltd.</organization>
+            <organizationUrl>https://www.cygnux.cn</organizationUrl>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>Shenzhen Cygnux Technologies Ltd.</name>
+        <url>https://www.cygnux.cn</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/extvos/quickstart.git</url>
+        <connection>scm:git:git://github.com/extvos/quickstart.git</connection>
+        <developerConnection>scm:git:git@github.com:extvos/quickstart.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 </project>

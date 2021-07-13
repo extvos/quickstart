@@ -26,7 +26,8 @@
             <pluginRepositories>
                 <pluginRepository>
                     <id>github</id>
-                    <name>extvos github repo</name>
+                    <name>Github Plugins repo</name>
+                    <url>https://maven.pkg.github.com/extvos/quickstart</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
