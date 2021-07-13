@@ -43,6 +43,7 @@
         <module>quick-restlet-generator</module>
 
         <module>demo</module>
+        <module>petite-demo</module>
 
     </modules>
 

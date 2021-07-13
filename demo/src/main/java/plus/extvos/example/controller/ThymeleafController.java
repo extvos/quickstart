@@ -12,7 +12,7 @@ import plus.extvos.auth.annotation.SessionUser;
 import plus.extvos.auth.dto.UserInfo;
 import plus.extvos.auth.service.ProviderService;
 import plus.extvos.auth.service.QuickAuthService;
-import plus.extvos.restlet.exception.RestletException;
+import plus.extvos.common.exception.ResultException;
 
 /**
  * @author Mingcai SHEN
@@ -44,7 +44,7 @@ public class ThymeleafController {
     }
 
     @GetMapping("/login")
-    public String loginView(Model model) throws RestletException {
+    public String loginView(Model model) throws ResultException {
         log.debug("ThymeleafController::login > {}", model);
         // 设置属性
         model.addAttribute("providers", providerService.allProviders());
@@ -53,7 +53,7 @@ public class ThymeleafController {
     }
 
     @GetMapping("/profile")
-    public Object profileView(Model model, @SessionUser String username) throws RestletException {
+    public Object profileView(Model model, @SessionUser String username) throws ResultException {
         log.debug("ThymeleafController::profile > ");
         model.addAttribute("isAuthenticated", isAuthenticated());
         log.debug("ThymeleafController::profile > username: {}", username);

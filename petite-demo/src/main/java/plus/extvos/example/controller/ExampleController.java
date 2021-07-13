@@ -2,17 +2,14 @@ package plus.extvos.example.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
-import plus.extvos.auth.annotation.SessionUser;
 import plus.extvos.builtin.async.dto.AsyncTask;
 import plus.extvos.builtin.async.service.AsyncTaskRunner;
-import plus.extvos.example.service.ExampleService;
 import plus.extvos.logging.annotation.Log;
 import plus.extvos.mqtt.annotation.Payload;
 import plus.extvos.mqtt.annotation.TopicSubscribe;
@@ -23,7 +20,6 @@ import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,9 +35,6 @@ public class ExampleController {
     private static final Logger log = LoggerFactory.getLogger(ExampleController.class);
 
     @Autowired
-    private ExampleService exampleService;
-
-    @Autowired
     private AsyncTaskRunner asyncTaskRunner;
 
     @Autowired
@@ -52,11 +45,9 @@ public class ExampleController {
     @GetMapping("/example/by/{num}")
     @ApiOperation("example request")
     public Result<?> exampleByNum(@PathVariable int num,
-                                  @RequestParam(required = false) Map<String, String> queries,
-                                  @SessionUser String username) throws Exception {
+                                  @RequestParam(required = false) Map<String, String> queries) throws Exception {
         log.debug("example > {}", num);
         log.debug("queries > {}", queries);
-        log.debug("username > {}", username);
         HashMap<String, Object> m = new HashMap<>(4);
         m.put("a", 1);
         m.put("b", 2);
@@ -79,12 +70,6 @@ public class ExampleController {
         return rs.success();
     }
 
-    @RequiresAuthentication
-    @GetMapping("/example/by/user")
-    public Result<String> exampleByUser(@SessionUser String username) {
-        return Result.data(username).success();
-    }
-
     @PostMapping("/example/test1")
     public Result<?> exampleTest1(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
         log.debug("exampleTest1:> accessToken: {}", accessToken);
@@ -94,22 +79,22 @@ public class ExampleController {
                 log.debug(">>>> {} = {}", k, v);
             });
         });
-        redisService.set("T:"+accessToken, data);
+        redisService.set("T:" + accessToken, data);
         return Result.data(data).success();
     }
 
     @GetMapping("/example/test1")
     public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) {
-        Object v = redisService.get("T:"+accessToken);
-        if(null != v){
+        Object v = redisService.get("T:" + accessToken);
+        if (null != v) {
             return Result.data(v).success();
-        }else{
+        } else {
             throw ResultException.notFound();
         }
     }
 
     @GetMapping("/example/async")
-    public Result<AsyncTask> exampleAsync(@Valid @RequestParam("duration") int duration) throws ResultException {
+    public Result<AsyncTask> exampleAsync(@RequestParam("duration") int duration) throws ResultException {
         AsyncTask t = asyncTaskRunner.make((ai) -> {
             try {
                 for (int i = 1; i <= duration; i++) {
@@ -131,15 +116,15 @@ public class ExampleController {
     private final MqttPublisher publisher = new MqttPublisher();
 
     @PostMapping("/example/mqtt-send")
-    public Result<?> exampleMqttSend(@RequestParam(name = "topic") String topic, @RequestBody Map<String,Object> data) throws ResultException {
+    public Result<?> exampleMqttSend(@RequestParam(name = "topic") String topic, @RequestBody Map<String, Object> data) throws ResultException {
         Assert.notEmpty(topic, ResultException.badRequest());
         Assert.notEmpty(data, ResultException.badRequest());
-        publisher.send(topic,data);
+        publisher.send(topic, data);
         return Result.data("OK").success();
     }
 
     @TopicSubscribe("test/#")
-    public void mqttTestTopics(String topic, @Payload Map<String,Object> data){
+    public void mqttTestTopics(String topic, @Payload Map<String, Object> data) {
         log.debug("mqttTestTopics:> {}, {}", topic, data);
     }
 
