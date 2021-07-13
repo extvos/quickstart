@@ -99,7 +99,7 @@ public class ExampleController {
     }
 
     @GetMapping("/example/test1")
-    public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) {
+    public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
         Object v = redisService.get("T:"+accessToken);
         if(null != v){
             return Result.data(v).success();

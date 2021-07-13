@@ -79,5 +79,6 @@ logging:
 #    console:
   level:
     plus.extvos: ${LOG_LEVEL:info}
+    plus.extvos.common: debug
     plus.extvos.thread: ${LOG_LEVEL_THREAD:info}
     plus.extvos.example: debug

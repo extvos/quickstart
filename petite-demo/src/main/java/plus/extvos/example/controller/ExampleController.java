@@ -71,7 +71,7 @@ public class ExampleController {
     }
 
     @PostMapping("/example/test1")
-    public Result<?> exampleTest1(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
+    public Result<?> exampleTest1Post(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
         log.debug("exampleTest1:> accessToken: {}", accessToken);
         log.debug("exampleTest1:> data: {}", data);
         data.forEach(o -> {
@@ -84,11 +84,11 @@ public class ExampleController {
     }
 
     @GetMapping("/example/test1")
-    public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) {
-        Object v = redisService.get("T:" + accessToken);
-        if (null != v) {
+    public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
+        Object v = redisService.get("T:"+accessToken);
+        if(null != v){
             return Result.data(v).success();
-        } else {
+        }else{
             throw ResultException.notFound();
         }
     }
