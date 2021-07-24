@@ -44,11 +44,15 @@ spring:
     druid:
       #监控统计拦截的filters
       filters: stat
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: org.postgresql.Driver
+#      driver-class-name: com.mysql.cj.jdbc.Driver
       #配置基本属性
-      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:testdb}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-      username: ${MYSQL_USERNAME:root}
-      password: ${MYSQL_PASSWORD:root}
+      url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:testdb}
+      username: ${POSTGRES_USERNAME:postgres}
+      password: ${POSTGRES_PASSWORD:postgres}
+#      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:testdb}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+#      username: ${MYSQL_USERNAME:root}
+#      password: ${MYSQL_PASSWORD:root}
       #配置初始化大小/最小/最大
       initial-size: 3
       min-idle: 3
