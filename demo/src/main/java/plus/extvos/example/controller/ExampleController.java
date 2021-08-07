@@ -12,16 +12,18 @@ import org.springframework.web.bind.annotation.*;
 import plus.extvos.auth.annotation.SessionUser;
 import plus.extvos.builtin.async.dto.AsyncTask;
 import plus.extvos.builtin.async.service.AsyncTaskRunner;
-import plus.extvos.example.service.ExampleService;
-import plus.extvos.logging.annotation.Log;
-import plus.extvos.mqtt.annotation.Payload;
-import plus.extvos.mqtt.annotation.TopicSubscribe;
-import plus.extvos.mqtt.publish.MqttPublisher;
-import plus.extvos.redis.service.QuickRedisService;
 import plus.extvos.common.Assert;
 import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
+import plus.extvos.example.service.ExampleService;
+import plus.extvos.logging.annotation.Log;
+import plus.extvos.logging.annotation.type.LogAction;
+import plus.extvos.logging.annotation.type.LogLevel;
+import plus.extvos.mqtt.annotation.Payload;
+import plus.extvos.mqtt.annotation.TopicSubscribe;
+import plus.extvos.mqtt.publish.MqttPublisher;
+import plus.extvos.redis.service.QuickRedisService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -94,16 +96,17 @@ public class ExampleController {
                 log.debug(">>>> {} = {}", k, v);
             });
         });
-        redisService.set("T:"+accessToken, data);
+        redisService.set("T:" + accessToken, data);
         return Result.data(data).success();
     }
 
     @GetMapping("/example/test1")
+    @Log(action = LogAction.CREATE, level = LogLevel.NORMAL)
     public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
-        Object v = redisService.get("T:"+accessToken);
-        if(null != v){
+        Object v = redisService.get("T:" + accessToken);
+        if (null != v) {
             return Result.data(v).success();
-        }else{
+        } else {
             throw ResultException.notFound();
         }
     }
@@ -131,15 +134,15 @@ public class ExampleController {
     private final MqttPublisher publisher = new MqttPublisher();
 
     @PostMapping("/example/mqtt-send")
-    public Result<?> exampleMqttSend(@RequestParam(name = "topic") String topic, @RequestBody Map<String,Object> data) throws ResultException {
+    public Result<?> exampleMqttSend(@RequestParam(name = "topic") String topic, @RequestBody Map<String, Object> data) throws ResultException {
         Assert.notEmpty(topic, ResultException.badRequest());
         Assert.notEmpty(data, ResultException.badRequest());
-        publisher.send(topic,data);
+        publisher.send(topic, data);
         return Result.data("OK").success();
     }
 
     @TopicSubscribe("test/#")
-    public void mqttTestTopics(String topic, @Payload Map<String,Object> data){
+    public void mqttTestTopics(String topic, @Payload Map<String, Object> data) {
         log.debug("mqttTestTopics:> {}, {}", topic, data);
     }
 
