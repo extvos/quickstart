@@ -11,7 +11,7 @@ import plus.extvos.common.exception.ResultException;
 import plus.extvos.example.entity.Student;
 import plus.extvos.example.service.StudentService;
 import plus.extvos.restlet.controller.BaseController;
-
+import plus.extvos.restlet.controller.BaseROController;
 import javax.annotation.Resource;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;

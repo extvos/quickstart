@@ -22,6 +22,7 @@ import plus.extvos.logging.annotation.type.LogAction;
 import plus.extvos.logging.annotation.type.LogLevel;
 import plus.extvos.mqtt.annotation.Payload;
 import plus.extvos.mqtt.annotation.TopicSubscribe;
+import plus.extvos.mqtt.annotation.TopicVariable;
 import plus.extvos.mqtt.publish.MqttPublisher;
 import plus.extvos.redis.service.QuickRedisService;
 
@@ -144,6 +145,18 @@ public class ExampleController {
     @TopicSubscribe("test/#")
     public void mqttTestTopics(String topic, @Payload Map<String, Object> data) {
         log.debug("mqttTestTopics:> {}, {}", topic, data);
+    }
+
+    @TopicSubscribe("$SYS/brokers/{node}/clients/{device}/connected")
+    public void onConnect(String topic, @TopicVariable("node") String node, @TopicVariable("device") String device, @Payload Map<String, Object> data) {
+        log.info("onConnect1:> {} {} ", node, device);
+        log.info("onConnect2:> {} {} ", topic, data);
+    }
+
+    @TopicSubscribe("$SYS/brokers/{node}/clients/{device}/disconnected")
+    public void onDisconnect(String topic, @TopicVariable("node") String node, @TopicVariable("device") String device, @Payload Map<String, Object> data) {
+        log.info("onDisconnect1:> {} {} ", node, device);
+        log.info("onDisconnect2:> {} {} ", topic, data);
     }
 
 }
