@@ -1,5 +1,8 @@
 package plus.extvos.example.controller;
 
+import plus.extvos.restlet.annotation.RemoteAddress;
+import plus.extvos.restlet.annotation.RequestHeader;
+import plus.extvos.restlet.annotation.UserAgent;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -56,10 +59,16 @@ public class ExampleController {
     @ApiOperation("example request")
     public Result<?> exampleByNum(@PathVariable int num,
                                   @RequestParam(required = false) Map<String, String> queries,
-                                  @SessionUser String username) throws Exception {
+                                  @SessionUser String username, @RemoteAddress String remoteIp,
+                                  @UserAgent String ua,
+                                  @RequestHeader("Referer") String referer) throws Exception {
         log.debug("example > {}", num);
         log.debug("queries > {}", queries);
         log.debug("username > {}", username);
+        log.debug("SessionUser: {}", username);
+        log.debug("RemoteAddress: {}", remoteIp);
+        log.debug("UserAgent: {}", ua);
+        log.debug("Referer: {}", referer);
         HashMap<String, Object> m = new HashMap<>(4);
         m.put("a", 1);
         m.put("b", 2);
@@ -84,8 +93,12 @@ public class ExampleController {
 
     @RequiresAuthentication
     @GetMapping("/example/by/user")
-    public Result<String> exampleByUser(@SessionUser String username) {
-        return Result.data(username).success();
+    public Result<?> exampleByUser(@SessionUser String username, @RemoteAddress String remoteIp, @UserAgent String ua) {
+        Map<String, Object> m = new HashMap<>();
+        m.put("SessionUser", username);
+        m.put("RemoteAddress", remoteIp);
+        m.put("UserAgent", ua);
+        return Result.data(m).success();
     }
 
     @PostMapping("/example/test1")
