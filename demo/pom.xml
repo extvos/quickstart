@@ -94,7 +94,22 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.2.6</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>tools</artifactId>
+                    <groupId>com.sun</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun</groupId>-->
+        <!--            <artifactId>tools</artifactId>-->
+        <!--            <version>1.8</version>-->
+        <!--            <scope>system</scope>-->
+        <!--            <systemPath>${java.home}/lib/tools.jar</systemPath>-->
+        <!--        </dependency>-->
 
 
         <!-- swagger -->
