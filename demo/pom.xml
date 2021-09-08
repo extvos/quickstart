@@ -99,6 +99,10 @@
                     <artifactId>tools</artifactId>
                     <groupId>com.sun</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>jconsole</artifactId>
+                    <groupId>com.sun</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
