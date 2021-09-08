@@ -38,6 +38,8 @@
         <!-- https://github.com/extvos/quick-builtin-async.git -->
         <module>quick-builtin-async</module>
         <!-- https://github.com/extvos/quick-web-starter.git -->
+        <module>quick-builtin-payment</module>
+        <!-- https://github.com/extvos/quick-builtin-payment.git -->
         <module>quick-web-starter</module>
         <!-- https://github.com/extvos/quick-restlet-generator.git -->
         <module>quick-restlet-generator</module>

@@ -43,3 +43,6 @@
 [submodule "quick-lib-redis"]
 	path = quick-lib-redis
 	url = https://github.com/extvos/quick-lib-redis.git
+[submodule "quick-builtin-payment"]
+	path = quick-builtin-payment
+	url = https://github.com/extvos/quick-builtin-payment.git
