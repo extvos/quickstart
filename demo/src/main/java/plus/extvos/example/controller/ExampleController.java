@@ -1,5 +1,6 @@
 package plus.extvos.example.controller;
 
+import plus.extvos.common.i18n.LocaleMessage;
 import plus.extvos.restlet.annotation.RemoteAddress;
 import plus.extvos.restlet.annotation.RequestHeader;
 import plus.extvos.restlet.annotation.UserAgent;
@@ -52,6 +53,9 @@ public class ExampleController {
 
     @Autowired
     private QuickRedisService redisService;
+
+    @Autowired
+    private LocaleMessage localeMessage;
 
     @Log
     @Limit(count = 10, period = 1)
@@ -115,13 +119,16 @@ public class ExampleController {
     }
 
     @GetMapping("/example/test1")
-    @Log(action = LogAction.CREATE, level = LogLevel.NORMAL)
+//    @Log(action = LogAction.CREATE, level = LogLevel.NORMAL)
     public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
         Object v = redisService.get("T:" + accessToken);
+        log.debug("Locale:> {}", localeMessage.getLocale());
         if (null != v) {
             return Result.data(v).success();
         } else {
-            throw ResultException.notFound();
+            String msg = localeMessage.getMessage("exception.not_found");
+            log.debug("Message:> {}", msg);
+            throw ResultException.notFound(msg);
         }
     }
 
