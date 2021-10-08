@@ -1,5 +1,6 @@
 package plus.extvos.example.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import plus.extvos.builtin.version.config.GitProperties;
@@ -16,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
+@ConditionalOnProperty(prefix = "spring.swagger", name = "enabled", havingValue = "true")
 public class SwaggerConfig {
 
     @Bean
