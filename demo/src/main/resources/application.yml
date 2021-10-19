@@ -155,9 +155,10 @@ asyncconfig:
   queueCapacity: 10
 
 logging:
-  file: ${LOG_FILENAME:}
-#  pattern:
-#    console:
+  file:
+    name: ${LOG_FILENAME:./quick-demo.log}
+  pattern:
+    console: ${CONSOLE_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
   level:
     plus.extvos: ${LOG_LEVEL:debug}
     plus.extvos.thread: ${LOG_LEVEL_THREAD:info}

@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import plus.extvos.common.utils.SpringContextHolder;
 import plus.extvos.example.entity.Student;
 import plus.extvos.example.entity.StudentScore;
 import plus.extvos.example.entity.Teacher;
@@ -43,6 +44,7 @@ public class DevExampleApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.debug("DevExampleApplication.run:> {}", args.toString());
+        log.debug("DevExampleApplication.run:> context-path: {}", SpringContextHolder.getProperties("server.servlet.context-path"));
         String[] tableNames = new String[]{
             Student.class.getAnnotation(TableName.class).value(),
             StudentScore.class.getAnnotation(TableName.class).value(),
