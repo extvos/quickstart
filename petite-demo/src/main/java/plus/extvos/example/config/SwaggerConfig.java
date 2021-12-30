@@ -39,7 +39,7 @@ public class SwaggerConfig {
                 + ")  \n" +
                 "Branch: " + GitProperties.get(GitProperties.BRANCH) + ", Commit:" + GitProperties.get(GitProperties.COMMIT_ABBREV) + "  \n"
                 + "@ " + GitProperties.get(GitProperties.COMMIT_TIME))
-            .termsOfServiceUrl("http://www.extvos.org")
+            .termsOfServiceUrl("https://github.com/extvos/quickstart/raw/develop/LICENSE")
             .version(getClass().getPackage().getImplementationVersion())
             .build();
     }

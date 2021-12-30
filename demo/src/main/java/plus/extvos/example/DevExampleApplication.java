@@ -27,7 +27,6 @@ import javax.sql.DataSource;
  */
 @EntityScan(value = {"plus.extvos.example.entity"})
 @MapperScan("plus.extvos.example.mapper")
-@ComponentScan({"plus.extvos.example"})
 @SpringBootApplication
 @EnableConfigurationProperties
 @EnableSwagger2
