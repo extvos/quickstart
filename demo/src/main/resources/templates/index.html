@@ -105,26 +105,19 @@
                             class="mx-auto title font-weight-light mb-8"
                             max-width="720"
                     >
-                        Vuetify is the #1 component library for Vue.js and has been in active development since 2016. The goal of the project is to provide users with everything that is needed to build rich and engaging web applications using the Material Design specification. It accomplishes that with a consistent update cycle, Long-term Support (LTS) for previous versions, responsive community engagement, a vast ecosystem of resources and a dedication to quality components.
+                        本项目为`QUICK`脚手架的开发环境。 `quick-XXX`为各个脚手架模块项目，通过`git submodule`的方式引入；`demo`为简单演示应用项目。
                     </v-responsive>
-
-                    <v-avatar
-                            class="elevation-12 mb-12"
-                            size="128"
-                    >
-                        <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
-                    </v-avatar>
 
                     <div></div>
 
                     <v-btn
                             color="grey"
-                            href="https://vuetifyjs.com"
+                            href="https://github.com/extvos/quickstart/"
                             outlined
                             large
                     >
             <span class="grey--text text--darken-1 font-weight-bold">
-              Vuetify Documentation
+              GITHUB
             </span>
                     </v-btn>
                 </v-container>
@@ -139,7 +132,7 @@
                 <div class="py-12"></div>
 
                 <v-container class="text-center">
-                    <h2 class="display-2 font-weight-bold mb-3">VUETIFY FEATURES</h2>
+                    <h2 class="display-2 font-weight-bold mb-3">Quick Modules</h2>
 
                     <v-responsive
                             class="mx-auto mb-12"
@@ -194,87 +187,6 @@
                 <div class="py-12"></div>
             </section>
 
-            <section id="stats">
-                <v-parallax
-                        :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-                        src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-                >
-                    <v-container fill-height>
-                        <v-row class="mx-auto">
-                            <v-col
-                                    v-for="[value, title] of stats"
-                                    :key="title"
-                                    cols="12"
-                                    md="3"
-                            >
-                                <div class="text-center">
-                                    <div
-                                            class="display-3 font-weight-black mb-4"
-                                            v-text="value"
-                                    ></div>
-
-                                    <div
-                                            class="title font-weight-regular text-uppercase"
-                                            v-text="title"
-                                    ></div>
-                                </div>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </v-parallax>
-            </section>
-
-            <section id="blog">
-                <div class="py-12"></div>
-
-                <v-container>
-                    <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Blog</h2>
-
-                    <v-responsive
-                            class="mx-auto mb-12"
-                            width="56"
-                    >
-                        <v-divider class="mb-1"></v-divider>
-
-                        <v-divider></v-divider>
-                    </v-responsive>
-
-                    <v-row>
-                        <v-col
-                                v-for="({ src, text, title }, i) in articles"
-                                :key="i"
-                                cols="12"
-                                md="4"
-                        >
-                            <v-img
-                                    :src="src"
-                                    class="mb-4"
-                                    height="275"
-                                    max-width="100%"
-                            ></v-img>
-
-                            <h3
-                                    class="font-weight-black mb-4 text-uppercase"
-                                    v-text="title"
-                            ></h3>
-
-                            <div
-                                    class="title font-weight-light mb-5"
-                                    v-text="text"
-                            ></div>
-
-                            <v-btn
-                                    class="ml-n4 font-weight-black"
-                                    text
-                            >
-                                Continue Reading
-                            </v-btn>
-                        </v-col>
-                    </v-row>
-                </v-container>
-
-                <div class="py-12"></div>
-            </section>
 
             <v-sheet
                     id="contact"
@@ -356,7 +268,7 @@
                 height="100"
         >
             <div class="title font-weight-light grey--text text--lighten-1 text-center">
-                &copy; {{ (new Date()).getFullYear() }} — Vuetify, LLC — Made with 💜 by John Leider
+                &copy; {{ (new Date()).getFullYear() }} — quickstart, Scaffolds for Spring Boot, by EXTVOS.
             </div>
         </v-footer>
     </v-app>
@@ -367,7 +279,7 @@
     new Vue({
         el: '#app',
         vuetify: new Vuetify(),
-        data () {
+        data() {
             return {
                 articles: [
                     {
@@ -389,18 +301,63 @@
                 features: [
                     {
                         icon: 'mdi-account-group-outline',
-                        title: 'Vibrant Community',
-                        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+                        title: 'quick-lib-common',
+                        text: '通用公共库',
                     },
                     {
                         icon: 'mdi-update',
-                        title: 'Frequent Updates',
-                        text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+                        title: 'quick-lib-logging',
+                        text: '日志库',
                     },
                     {
                         icon: 'mdi-shield-outline',
-                        title: 'Long-term Support',
-                        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+                        title: 'quick-lib-restlet',
+                        text: 'Restful 增删查改库',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-lib-mqtt',
+                        text: 'MQTT消息处理封装',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-auth-base',
+                        text: '鉴权认证基础（Shiro）',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-auth-oauth2',
+                        text: 'OAuth2认证鉴权支持',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quich-auth-builtin',
+                        text: '本地认证鉴权支持',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-builtin-version',
+                        text: '内置版本信息服务',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-builtin-geo',
+                        text: '内置地理信息服务',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-builtin-upload',
+                        text: '内置文件上传服务',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-builtin-async',
+                        text: '异步接口任务处理',
+                    },
+                    {
+                        icon: 'mdi-shield-outline',
+                        title: 'quick-builtin-quartz',
+                        text: '定时任务处理',
                     },
                 ],
                 stats: [
