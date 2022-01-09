@@ -6,40 +6,66 @@ services:
     environment:
       REDIS_PROTECTED_MODE: "no"
       REDIS_DATABASE: 24
+      REDIS_PASSWORD: 'quickstart.extvos'
+      TZ: Asia/Shanghai
     ports:
-      - "127.0.0.1:6379:6379"
+      - "6379:6379"
 
-  mysql:
-    image: extvos/mysql:latest
-    volumes:
-      - "./data/mysql:/var/lib/mysql"
+  postgresql:
+    image: extvos/postgresql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: quickdb
+      REPLICATION_ROLE: master
+      POSTGRES_DB: quickdb
+      POSTGRES_PASSWORD: 'quickstart.extvos'
+      TZ: Asia/Shanghai
+    volumes:
+      - "./data/postgres:/var/lib/postgresql/data"
     ports:
-      - "127.0.0.1:3306:3306"
+      - "5432:5432"
+
+  emqx:
+    image: extvos/emqx:latest
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "1883:1883"
+#      - "8081:8081"
+#      - "8083:8083"
+#      - "8883:8883"
+      - "18083:18083"
+
+  clickhouse:
+    image: yandex/clickhouse-server
+    volumes:
+      - "./data/clickhouse:/var/lib/clickhouse"
+      - "./data/log:/var/log"
+    ulimits:
+      nofile: 262144
+    ports:
+      - 9000:9000
+      - 9009:9009
+      - 8123:8123
+    environment:
+      CLICKHOUSE_USER: admin
+      CLICKHOUSE_PASSWORD: 'quickstart.extvos'
+      TZ: Asia/Shanghai
 
   quick-demo:
     image: java:8
     depends_on:
-      - mysql
+      - postgresql
       - redis
     environment:
       SERVICE_NAME: quick-demo
       SERVER_PORT: 8080
-      MYSQL_HOST: mysql
-      MYSQL_DATABASE: quickdb
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: root
+      POSTGRES_HOST: postgresql
+      POSTGRES_DATABASE: quickdb
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: 'quickstart.extvos'
       REDIS_HOST: redis
       REDIS_DATABASE: 1
+      REDIS_PASSWORD: 'quickstart.extvos'
       AUTH_BASE_URL: http://work.cygnux.cn
-      WECHAT_APP_ID: wx01452e935078e443
-      WECHAT_APP_SECRET: f94afce4d4baafad153f7bcfc5313733
-      WECHAT_SCOPE: snsapi_base
-      WECHAT_TOKEN: quick-wechat
-
-
     volumes:
       - "./data/log:/var/log"
       - "./data/files:/home/data"
@@ -48,10 +74,10 @@ services:
 
   nginx:
     image: extvos/nginx:latest
-    build:
-      context: ./nginx/
     depends_on:
       - quick-demo
+    environment:
+      TZ: Asia/Shanghai
     volumes:
       - "./nginx/sites.d:/etc/nginx/sites.d"
       - "./nginx/cert:/etc/nginx/cert"

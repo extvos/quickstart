@@ -1,36 +1,25 @@
 package plus.extvos.example.controller;
 
-import plus.extvos.common.i18n.LocaleMessage;
-import plus.extvos.restlet.annotation.RemoteAddress;
-import plus.extvos.restlet.annotation.RequestHeader;
-import plus.extvos.restlet.annotation.UserAgent;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
-import plus.extvos.auth.annotation.SessionUser;
 import plus.extvos.builtin.async.dto.AsyncTask;
 import plus.extvos.builtin.async.service.AsyncTaskRunner;
+import plus.extvos.logging.annotation.Log;
+import plus.extvos.mqtt.annotation.Payload;
+import plus.extvos.mqtt.annotation.TopicSubscribe;
+import plus.extvos.mqtt.publish.MqttPublisher;
+import plus.extvos.redis.service.QuickRedisService;
 import plus.extvos.common.Assert;
 import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
-import plus.extvos.example.service.ExampleService;
-import plus.extvos.logging.annotation.Log;
-import plus.extvos.logging.annotation.type.LogAction;
-import plus.extvos.logging.annotation.type.LogLevel;
-import plus.extvos.mqtt.annotation.Payload;
-import plus.extvos.mqtt.annotation.TopicSubscribe;
-import plus.extvos.mqtt.annotation.TopicVariable;
-import plus.extvos.mqtt.publish.MqttPublisher;
-import plus.extvos.redis.service.QuickRedisService;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,33 +35,19 @@ public class ExampleController {
     private static final Logger log = LoggerFactory.getLogger(ExampleController.class);
 
     @Autowired
-    private ExampleService exampleService;
-
-    @Autowired
     private AsyncTaskRunner asyncTaskRunner;
 
     @Autowired
     private QuickRedisService redisService;
-
-    @Autowired
-    private LocaleMessage localeMessage;
 
     @Log
     @Limit(count = 10, period = 1)
     @GetMapping("/example/by/{num}")
     @ApiOperation("example request")
     public Result<?> exampleByNum(@PathVariable int num,
-                                  @RequestParam(required = false) Map<String, String> queries,
-                                  @SessionUser String username, @RemoteAddress String remoteIp,
-                                  @UserAgent String ua,
-                                  @RequestHeader("Referer") String referer) throws Exception {
+                                  @RequestParam(required = false) Map<String, String> queries) throws Exception {
         log.debug("example > {}", num);
         log.debug("queries > {}", queries);
-        log.debug("username > {}", username);
-        log.debug("SessionUser: {}", username);
-        log.debug("RemoteAddress: {}", remoteIp);
-        log.debug("UserAgent: {}", ua);
-        log.debug("Referer: {}", referer);
         HashMap<String, Object> m = new HashMap<>(4);
         m.put("a", 1);
         m.put("b", 2);
@@ -95,18 +70,8 @@ public class ExampleController {
         return rs.success();
     }
 
-    @RequiresAuthentication
-    @GetMapping("/example/by/user")
-    public Result<?> exampleByUser(@SessionUser String username, @RemoteAddress String remoteIp, @UserAgent String ua) {
-        Map<String, Object> m = new HashMap<>();
-        m.put("SessionUser", username);
-        m.put("RemoteAddress", remoteIp);
-        m.put("UserAgent", ua);
-        return Result.data(m).success();
-    }
-
     @PostMapping("/example/test1")
-    public Result<?> exampleTest1(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
+    public Result<?> exampleTest1Post(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
         log.debug("exampleTest1:> accessToken: {}", accessToken);
         log.debug("exampleTest1:> data: {}", data);
         data.forEach(o -> {
@@ -119,21 +84,17 @@ public class ExampleController {
     }
 
     @GetMapping("/example/test1")
-//    @Log(action = LogAction.CREATE, level = LogLevel.NORMAL)
     public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
-        Object v = redisService.get("T:" + accessToken);
-        log.debug("Locale:> {}", localeMessage.getLocale());
-        if (null != v) {
+        Object v = redisService.get("T:"+accessToken);
+        if(null != v){
             return Result.data(v).success();
-        } else {
-            String msg = localeMessage.getMessage("exception.not_found");
-            log.debug("Message:> {}", msg);
-            throw ResultException.notFound(msg);
+        }else{
+            throw ResultException.notFound();
         }
     }
 
     @GetMapping("/example/async")
-    public Result<AsyncTask> exampleAsync(@Valid @RequestParam("duration") int duration) throws ResultException {
+    public Result<AsyncTask> exampleAsync(@RequestParam("duration") int duration) throws ResultException {
         AsyncTask t = asyncTaskRunner.make((ai) -> {
             try {
                 for (int i = 1; i <= duration; i++) {
@@ -165,18 +126,6 @@ public class ExampleController {
     @TopicSubscribe("test/#")
     public void mqttTestTopics(String topic, @Payload Map<String, Object> data) {
         log.debug("mqttTestTopics:> {}, {}", topic, data);
-    }
-
-    @TopicSubscribe("$SYS/brokers/{node}/clients/{device}/connected")
-    public void onConnect(String topic, @TopicVariable("node") String node, @TopicVariable("device") String device, @Payload Map<String, Object> data) {
-        log.info("onConnect1:> {} {} ", node, device);
-        log.info("onConnect2:> {} {} ", topic, data);
-    }
-
-    @TopicSubscribe("$SYS/brokers/{node}/clients/{device}/disconnected")
-    public void onDisconnect(String topic, @TopicVariable("node") String node, @TopicVariable("device") String device, @Payload Map<String, Object> data) {
-        log.info("onDisconnect1:> {} {} ", node, device);
-        log.info("onDisconnect2:> {} {} ", topic, data);
     }
 
 }

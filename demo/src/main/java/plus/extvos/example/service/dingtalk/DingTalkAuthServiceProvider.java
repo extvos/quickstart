@@ -3,7 +3,7 @@ package plus.extvos.example.service.dingtalk;
 import org.springframework.stereotype.Service;
 import plus.extvos.auth.dto.OAuthState;
 import plus.extvos.auth.service.OAuthProvider;
-import plus.extvos.restlet.exception.RestletException;
+import plus.extvos.common.exception.ResultException;
 
 import java.util.Map;
 
@@ -25,22 +25,27 @@ public class DingTalkAuthServiceProvider implements OAuthProvider {
     }
 
     @Override
-    public Object notify(Map<String, Object> params, byte[] body) throws RestletException {
+    public Object notify(Map<String, Object> params, byte[] body) throws ResultException {
         return null;
     }
 
     @Override
-    public String getCodeUrl(String state, String redirectUri) throws RestletException {
+    public String getCodeUrl(String state, String redirectUri) throws ResultException {
         return null;
     }
 
     @Override
-    public OAuthState authorized(String code, String state, String via, OAuthState authState) throws RestletException {
+    public String resultPage(int ret, String message) {
+        return "";
+    }
+
+    @Override
+    public OAuthState authorized(String code, String state, String via, OAuthState authState) throws ResultException {
         return null;
     }
 
     @Override
-    public OAuthState authorizeUpdate(Map<String, Object> params, OAuthState authState) throws RestletException {
+    public OAuthState authorizeUpdate(Map<String, Object> params, OAuthState authState) throws ResultException {
         return null;
     }
 }

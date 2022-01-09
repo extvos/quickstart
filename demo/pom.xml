@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.4</version>
+        <version>2.5.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -13,19 +13,28 @@
     <artifactId>quick-demo-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>quick-demo</name>
-    <description>DEMO程序</description>
+    <description>Demo App</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <springboot.version>2.5.8</springboot.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <maven.deploy.skip>true</maven.deploy.skip>
+        <log4j2.version>2.17.0</log4j2.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -39,15 +48,21 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--Spring boot Redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -62,22 +77,58 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc -->
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.3.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.23</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.4.2</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.mybatis.spring.boot</groupId>-->
-        <!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
-        <!--            <version>1.3.2</version>-->
-        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.6</version>
+            <version>1.2.8</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>tools</artifactId>
+                    <groupId>com.sun</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jconsole</artifactId>
+                    <groupId>com.sun</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun</groupId>-->
+        <!--            <artifactId>tools</artifactId>-->
+        <!--            <version>1.8</version>-->
+        <!--            <scope>system</scope>-->
+        <!--            <systemPath>${java.home}/lib/tools.jar</systemPath>-->
+        <!--        </dependency>-->
 
 
         <!-- swagger -->
@@ -91,12 +142,6 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>io.springfox</groupId>-->
-        <!--            <artifactId>springfox-spring-web</artifactId>-->
-        <!--            <version>2.9.2</version>-->
-        <!--            <scope>compile</scope>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -109,30 +154,21 @@
             <version>1.0-rc2</version>
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-cache</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
+        <!--        </dependency>-->
         <!-- mqtt -->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-integration</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-stream</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-mqtt</artifactId>
-        </dependency>
-
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-integration</artifactId>-->
+        <!--        </dependency>-->
+        <!-- log4j2相关包(scf依赖中以及引入，不过为了版本控制以及防止包冲突，建议在此引入) -->
 
         <dependency>
             <groupId>io.minio</groupId>
@@ -162,6 +198,18 @@
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-quartz</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.extvos</groupId>
+            <artifactId>quick-lib-mqtt</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.extvos</groupId>
+            <artifactId>quick-lib-redis</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -218,89 +266,6 @@
 
     <build>
         <plugins>
-            <!--代码混淆-->
-<!--            <plugin>-->
-<!--                <groupId>com.github.wvengen</groupId>-->
-<!--                <artifactId>proguard-maven-plugin</artifactId>-->
-<!--                <version>2.3.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>proguard</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <proguardVersion>6.0.3</proguardVersion>-->
-<!--                    <injar>${project.build.finalName}.jar</injar>-->
-<!--                    &lt;!&ndash; <injar>classes</injar> &ndash;&gt;-->
-<!--                    <outjar>${project.build.finalName}.jar</outjar>-->
-<!--                    <obfuscate>true</obfuscate>-->
-<!--                    <options>-->
-<!--                        &lt;!&ndash;  ##默认是开启的，这里关闭shrink，即不删除没有使用的类/成员&ndash;&gt;-->
-<!--                        <option>-dontshrink</option>-->
-<!--                        &lt;!&ndash; ##默认是开启的，这里关闭字节码级别的优化&ndash;&gt;-->
-<!--                        <option>-dontoptimize</option>-->
-<!--                        &lt;!&ndash;##对于类成员的命名的混淆采取唯一策略&ndash;&gt;-->
-<!--                        <option>-useuniqueclassmembernames</option>-->
-<!--                        &lt;!&ndash;- 混淆类名之后，对使用Class.forName('className')之类的地方进行相应替代&ndash;&gt;-->
-<!--                        <option>-adaptclassstrings</option>-->
-<!--                        <option>-ignorewarnings</option>-->
-<!--                        &lt;!&ndash; 混淆时不生成大小写混合的类名，默认是可以大小写混合&ndash;&gt;-->
-<!--                        <option>-dontusemixedcaseclassnames</option>-->
-<!--                        &lt;!&ndash; This option will replace all strings in reflections method invocations with new class names.-->
-<!--                             For example, invokes Class.forName('className')&ndash;&gt;-->
-<!--                        &lt;!&ndash; <option>-adaptclassstrings</option> &ndash;&gt;-->
-<!--                        &lt;!&ndash; This option will save all original annotations and etc. Otherwise all we be removed from files.&ndash;&gt;-->
-<!--                        &lt;!&ndash; 不混淆所有特殊的类&ndash;&gt;-->
-<!--                        <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,-->
-<!--                            SourceFile,LineNumberTable,*Annotation*,EnclosingMethod-->
-<!--                        </option>-->
-<!--                        &lt;!&ndash; This option will save all original names in interfaces (without obfuscate).&ndash;&gt;-->
-<!--                        <option>-keepnames interface **</option>-->
-<!--                        &lt;!&ndash; This option will save all original methods parameters in files defined in -keep sections,-->
-<!--                             otherwise all parameter names will be obfuscate.&ndash;&gt;-->
-<!--                        <option>-keepparameternames</option>-->
-<!--                        &lt;!&ndash; <option>-libraryjars **</option> &ndash;&gt;-->
-<!--                        &lt;!&ndash; This option will save all original class files (without obfuscate) but obfuscate all in domain package.&ndash;&gt;-->
-<!--                        &lt;!&ndash;<option>-keep class !com.slm.proguard.example.spring.boot.domain.** { *; }</option>&ndash;&gt;-->
-<!--                        <option>-keep class !com.dsys.project.** { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.App { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.config.** { *; }</option>-->
-<!--                        &lt;!&ndash;保留不然Mybatis报错&ndash;&gt;-->
-<!--                        <option>-keep class com.dsys.project.entity.** { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.utils.PageRes { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.controller.** { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.mp.controller.** { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.mp.config.** { *; }</option>-->
-<!--                        <option>-keep class com.dsys.project.dto.** { *; }</option>-->
-<!--                        <option>-keep class * implements java.io.Serializable</option>-->
-<!--                        &lt;!&ndash; This option will save all original class files (without obfuscate) in service package&ndash;&gt;-->
-<!--                        &lt;!&ndash;<option>-keep class com.slm.proguard.example.spring.boot.service { *; }</option>&ndash;&gt;-->
-<!--                        &lt;!&ndash; This option will save all original interfaces files (without obfuscate) in all packages.&ndash;&gt;-->
-<!--                        <option>-keep interface * extends * { *; }</option>-->
-<!--                        &lt;!&ndash; <option>-keep @org.springframework.stereotype.Service class *</option> &ndash;&gt;-->
-<!--                        &lt;!&ndash; This option will save all original defined annotations in all class in all packages.&ndash;&gt;-->
-<!--                        <option>-keepclassmembers class * {-->
-<!--                            &lt;!&ndash; @org.springframework.beans.factory.annotation.Autowired *; &ndash;&gt;-->
-<!--                            @org.springframework.beans.factory.annotation.Value *;-->
-<!--                            }-->
-<!--                        </option>-->
-<!--                    </options>-->
-<!--                    <libs>-->
-<!--                        &lt;!&ndash; Include main JAVA library required.&ndash;&gt;-->
-<!--                        <lib>${java.home}/lib/rt.jar</lib>-->
-<!--                    </libs>-->
-<!--                </configuration>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>net.sf.proguard</groupId>-->
-<!--                        <artifactId>proguard-base</artifactId>-->
-<!--                        <version>6.2.2</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>io.github.extvos</groupId>
                 <artifactId>restlet-maven-plugin</artifactId>
@@ -326,7 +291,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.4.4</version>
+                <version>${springboot.version}</version>
             </plugin>
             <plugin>
                 <groupId>pl.project13.maven</groupId>

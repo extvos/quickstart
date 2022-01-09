@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import plus.extvos.example.entity.Teacher;
 import plus.extvos.example.service.TeacherService;
 import plus.extvos.restlet.controller.BaseController;
+import plus.extvos.restlet.controller.BaseROController;
 
 
 /**

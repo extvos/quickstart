@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<div th:fragment="Navigator(activate)">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"
-                        th:attr="class=${#httpServletRequest.requestURI=='/'||#httpServletRequest.requestURI==''||#httpServletRequest.requestURI=='/index'?'active':''}">
-                        <a href="/">Home</a></li>
-                    <li th:if="!${isAuthenticated}" role="presentation"
-                        th:attr="class=${#httpServletRequest.requestURI=='/login'?'active':''}"><a
-                            href="/login">Login</a></li>
-                    <li th:if="${isAuthenticated}" role="presentation"
-                        th:attr="class=${#httpServletRequest.requestURI=='/profile'?'active':''}"><a
-                            href="/profile">User Profile</a></li>
-                    <li th:if="${isAuthenticated}" role="presentation"
-                        th:attr="class=${#httpServletRequest.requestURI=='/auth/logout'?'active':''}"><a
-                            href="/auth/logout">Logout</a></li>
-                    <li role="presentation" th:attr="class=${#httpServletRequest.requestURI=='/doc.html'?'active':''}">
-                        <a href="/doc.html" target="_blank">Documents</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
+<v-app-bar th:fragment="Navigator(activate)"
+        app
+        color="white"
+        height="100">
+    <v-avatar
+            class="mr-3"
+            color="grey lighten-5"
+            size="70">
+        <v-img
+                contain
+                max-height="70%"
+                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"></v-img>
+    </v-avatar>
 
-</div>
+    <v-toolbar-title class="font-weight-black headline">
+        VUETIFY
+    </v-toolbar-title>
+</v-app-bar>
 </html>

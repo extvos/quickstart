@@ -1,0 +1,84 @@
+server:
+  port: ${SERVER_PORT:8080}
+  tomcat:
+    accesslog:
+      buffered: true
+      directory: logs
+      enabled: false
+      file-date-format: .yyyy-MM-dd
+      pattern: common
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log
+  #    basedir: /usr/local/jar/
+  session:
+    tracking-modes: cookie
+
+spring:
+  mvc:
+    static-path-pattern=/template/**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  servlet:
+    multipart:
+      max-file-size: 10MB      # Max file size
+      max-request-size: 10MB   # Max request size
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+
+  redis:
+    database: 0
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 1000
+
+  mqtt:
+    client-id: ${MQTT_CLIENT_ID:quick-demo}
+    brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+    username: ${MQTT_USERNAME:emqx}
+    password: ${MQTT_PASSWORD:public}
+    clients:
+      quick-demo-1:
+        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        username: ${MQTT_USERNAME:emqx}
+        password: ${MQTT_PASSWORD:public}
+      quick-demo-2:
+        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        username: ${MQTT_USERNAME:emqx}
+        password: ${MQTT_PASSWORD:public}
+      quick-demo-3:
+        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        username: ${MQTT_USERNAME:emqx}
+        password: ${MQTT_PASSWORD:public}
+      quick-demo-4:
+        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        username: ${MQTT_USERNAME:emqx}
+        password: ${MQTT_PASSWORD:public}
+
+
+logging:
+  file: ${LOG_FILENAME:}
+#  pattern:
+#    console:
+  level:
+    plus.extvos: ${LOG_LEVEL:info}
+    plus.extvos.common: debug
+    plus.extvos.thread: ${LOG_LEVEL_THREAD:info}
+    plus.extvos.example: debug
