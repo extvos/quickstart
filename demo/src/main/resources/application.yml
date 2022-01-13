@@ -132,6 +132,8 @@ quick:
     default-page-size: 10
     pretty-json: true
   builtin:
+    upload:
+      enabled: true
     geo:
       full-access: true
       separator: ' '
