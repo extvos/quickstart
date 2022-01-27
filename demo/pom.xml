@@ -281,7 +281,7 @@
                 <configuration>
                     <packages>
                         <package>
-                            <source>io.github.extvos.example</source>
+                            <source>plus.extvos.example</source>
                             <prefix>/example</prefix>
                             <readOnly>true</readOnly>
                         </package>
