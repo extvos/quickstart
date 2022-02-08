@@ -40,20 +40,3 @@ jobs:
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
-
-    - name: Build WEB Pages
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16.3.0'
-      run: cd quick-web-admin && npm install && npm build
-
-#    - name: Deploy to Staging server
-#      uses: easingthemes/ssh-deploy@main
-#      env:
-#        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-#        ARGS: "-rltgoDzvO"
-#        SOURCE: "quick-web-admin/dist/"
-#        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-#        REMOTE_USER: ${{ secrets.REMOTE_USER }}
-#        TARGET: ${{ secrets.REMOTE_TARGET }}
-#        EXCLUDE: "/dist/, /node_modules/"
