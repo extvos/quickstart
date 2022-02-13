@@ -31,8 +31,8 @@ jobs:
         distribution: 'temurin'
         java-package: 'jdk'
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: OSSRH_USERNAME
-        server-password: OSSRH_PASSWORD
+        server-username: ${{ secrets.OSSRH_USERNAME }}
+        server-password: ${{ secrets.OSSRH_PASSWORD }}
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Cache Maven packages
