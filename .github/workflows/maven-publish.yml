@@ -27,27 +27,26 @@ jobs:
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
-        java-version: '8'
-        distribution: 'temurin'
-        java-package: 'jdk'
+        java-version: '11'
+        distribution: 'adopt'
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
         server-username: ${{ secrets.OSSRH_USERNAME }}
         server-password: ${{ secrets.OSSRH_PASSWORD }}
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Cache Maven packages
-      uses: actions/cache@v2.1.4
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+#    - name: Cache Maven packages
+#      uses: actions/cache@v2.1.4
+#      with:
+#        path: ~/.m2
+#        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+#        restore-keys: ${{ runner.os }}-m2
 
-    - name: Build with Maven
-      run: |
-        mvn -Dhttp.keepAlive=false \
-            -Dmaven.wagon.http.pool=false \
-            -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
-            -B package --file pom.xml
+#    - name: Build with Maven
+#      run: |
+#        mvn -Dhttp.keepAlive=false \
+#            -Dmaven.wagon.http.pool=false \
+#            -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
+#            -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
       env:
@@ -58,4 +57,4 @@ jobs:
           mvn -Dhttp.keepAlive=false \
               -Dmaven.wagon.http.pool=false \
               -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
-              deploy
+              --batch-mode deploy
