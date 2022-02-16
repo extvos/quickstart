@@ -10,6 +10,9 @@
     <profiles>
         <profile>
             <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <repositories>
                 <repository>
                     <id>central</id>
@@ -31,6 +34,7 @@
             </pluginRepositories>
             <properties>
                 <gpg.executable>gpg</gpg.executable>
+                <gpg.passphrase>${OSSRH_GPG_PASSWORD}</gpg.passphrase>
             </properties>
         </profile>
     </profiles>
