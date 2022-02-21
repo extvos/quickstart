@@ -42,6 +42,12 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
 
+    - name: Import GPG Key
+      uses: crazy-max/ghaction-import-gpg@v1
+      env:
+         GPG_PRIVATE_KEY: ${{ secrets.OSSRH_GPG_PRIVATE_KEY }}
+         PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}
+
     - name: Build with Maven
       run: |
         mvn -Dhttp.keepAlive=false \
