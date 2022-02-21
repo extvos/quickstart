@@ -16,7 +16,7 @@ import plus.extvos.restlet.controller.BaseROController;
  * @author Mingcai SHEN
  */
 @RestController
-@RequestMapping("/example/student-score")
+@RequestMapping(value = {"/example/student-score","/example/student/{studentId}/score"})
 @Api(tags = {"学生成绩"})
 public class StudentScoreController extends BaseController<StudentScore, StudentScoreService> {
 
