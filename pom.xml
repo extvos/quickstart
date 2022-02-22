@@ -57,7 +57,7 @@
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
-    <licenses>
+     <licenses>
         <license>
             <name>GNU GPL v3</name>
             <url>https://www.gnu.org/licenses/gpl.txt</url>
