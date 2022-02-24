@@ -14,6 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>quick-demo</name>
     <description>Demo App</description>
+    <url>https://github.com/extvos/quickstart</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

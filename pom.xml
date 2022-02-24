@@ -8,6 +8,7 @@
     <artifactId>quickstart</artifactId>
     <name>QUICK-JAVA-DEVEL</name>
     <description>QUICK脚手架套件开发</description>
+    <url>https://github.com/extvos/quickstart</url>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
