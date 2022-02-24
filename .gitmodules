@@ -46,3 +46,6 @@
 [submodule "quick-builtin-payment"]
 	path = quick-builtin-payment
 	url = https://github.com/extvos/quick-builtin-payment.git
+[submodule "quick-web-admin"]
+	path = quick-web-admin
+	url = https://github.com/extvos/quick-web-admin.git

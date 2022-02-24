@@ -9,5 +9,14 @@ CREATE TABLE IF NOT EXISTS example_student_scores (
 	created TIMESTAMP(0) DEFAULT NOW() NOT NULL,
 	PRIMARY KEY (id),
 	CONSTRAINT example_student_scores_FK FOREIGN KEY (student_id) REFERENCES example_students(id)
-)
-;
+);
+
+
+CREATE TABLE IF NOT EXISTS example_student_skills (
+    student_id INT NOT NULL,
+    skills hstore NULL,
+    created timestamp NULL DEFAULT now(),
+    updated timestamp NULL DEFAULT now(),
+    CONSTRAINT example_student_skills_pkey PRIMARY KEY (id),
+    CONSTRAINT example_student_skills_student_id_fkey FOREIGN KEY (student_id) REFERENCES example_students(id) ON DELETE CASCADE
+);

@@ -24,9 +24,6 @@ server:
 spring:
   mvc:
     static-path-pattern=/template/**
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-
   http:
     multipart:
       max-file-size: 10MB
@@ -68,18 +65,18 @@ spring:
       datasource:
         master:
           driver-class-name: org.postgresql.Driver
-          url: jdbc:postgresql://${POSTGRES_HOST:work.cygnux.cn}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:quickdb}
+          url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:quickdb}
           username: ${POSTGRES_USERNAME:postgres}
           password: ${POSTGRES_PASSWORD:postgres}
-        clickhouse:
-          url: jdbc:clickhouse://${CLICKHOUSE_HOST:work.cygnux.cn}:${CLICKHOUSE_PORT:8123}/${CLICKHOUSE_DB:quickdb}
-          username: ${CLICKHOUSE_USERNAME:admin}
-          password: ${CLICKHOUSE_PASSWORD:admin}
-          driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+#        clickhouse:
+#          url: jdbc:clickhouse://${CLICKHOUSE_HOST:localhost}:${CLICKHOUSE_PORT:8123}/${CLICKHOUSE_DB:quickdb}
+#          username: ${CLICKHOUSE_USERNAME:admin}
+#          password: ${CLICKHOUSE_PASSWORD:admin}
+#          driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
 
   redis:
     database: 0
-    host: ${REDIS_HOST:work.cygnux.cn}
+    host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
     password: ${REDIS_PASSWORD:}
     pool:
@@ -89,28 +86,31 @@ spring:
       min-idle: 0
     timeout: 1000
 
-  mqtt:
-    client-id: ${MQTT_CLIENT_ID:quick-demo}
-    brokers: ${MQTT_BROKERS:tcp://work.cygnux.cn:1883}
-    username: ${MQTT_USERNAME:emqx}
-    password: ${MQTT_PASSWORD:public}
-    clients:
-      quick-demo-1:
-        brokers: ${MQTT_BROKERS:tcp://work.cygnux.cn:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-2:
-        brokers: ${MQTT_BROKERS:tcp://work.cygnux.cn:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-3:
-        brokers: ${MQTT_BROKERS:tcp://work.cygnux.cn:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-4:
-        brokers: ${MQTT_BROKERS:tcp://work.cygnux.cn:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
+#  mqtt:
+#    client-id: ${MQTT_CLIENT_ID:quick-demo}
+#    brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#    username: ${MQTT_USERNAME:emqx}
+#    password: ${MQTT_PASSWORD:public}
+#    clients:
+#      quick-demo-1:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-2:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-3:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-4:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 
 
 ### MyBatis 配置
@@ -132,6 +132,8 @@ quick:
     default-page-size: 10
     pretty-json: true
   builtin:
+    upload:
+      enabled: true
     geo:
       full-access: true
       separator: ' '

@@ -15,17 +15,15 @@ server:
   #    basedir: /usr/local/jar/
   session:
     tracking-modes: cookie
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
 
 spring:
   mvc:
     static-path-pattern=/template/**
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-
   http:
-    encoding:
-      charset: utf-8
-      enabled: true
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
@@ -51,34 +49,38 @@ spring:
 
   mqtt:
     client-id: ${MQTT_CLIENT_ID:quick-demo}
-    brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+    brokers: ${MQTT_BROKERS:tcp://localhost:1883}
     username: ${MQTT_USERNAME:emqx}
     password: ${MQTT_PASSWORD:public}
     clients:
       quick-demo-1:
-        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
         username: ${MQTT_USERNAME:emqx}
         password: ${MQTT_PASSWORD:public}
       quick-demo-2:
-        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
         username: ${MQTT_USERNAME:emqx}
         password: ${MQTT_PASSWORD:public}
       quick-demo-3:
-        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
         username: ${MQTT_USERNAME:emqx}
         password: ${MQTT_PASSWORD:public}
       quick-demo-4:
-        brokers: ${MQTT_BROKERS:tcp://192.168.3.10:1883}
+        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
         username: ${MQTT_USERNAME:emqx}
         password: ${MQTT_PASSWORD:public}
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 
 
 logging:
-  file: ${LOG_FILENAME:}
-#  pattern:
+  #  pattern:
 #    console:
   level:
     plus.extvos: ${LOG_LEVEL:info}
     plus.extvos.common: debug
     plus.extvos.thread: ${LOG_LEVEL_THREAD:info}
     plus.extvos.example: debug
+  file:
+    name: ${LOG_FILENAME:}
