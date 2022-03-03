@@ -2,6 +2,8 @@
 .*
 .idea/*
 *.iml
+*.log
+*.log*
 */target/*
 */*.iml
 /.gradle/
