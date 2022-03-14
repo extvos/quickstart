@@ -141,6 +141,8 @@ quick:
     base-url: ${AUTH_BASE_URL:http://dev.extvos.org}
     base:
       register-allowed: ${AUTH_REGISTER_ALLOWED:true}
+      register-captcha-required: true
+      register-verifier-required: false
       auto-register: ${AUTH_AUTO_REGISTER:false}
       salt-required: ${AUTH_SALT_REQUIRED:false}
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
