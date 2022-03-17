@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import plus.extvos.builtin.upload.config.UploadConfig;
 import plus.extvos.builtin.upload.controller.AbstractUploadController;
-import plus.extvos.builtin.upload.entity.UploadFile;
-import plus.extvos.builtin.upload.entity.UploadResult;
+import plus.extvos.builtin.upload.dto.UploadFile;
+import plus.extvos.builtin.upload.dto.UploadResult;
 import plus.extvos.builtin.upload.service.StorageService;
 import plus.extvos.common.exception.ResultException;
 

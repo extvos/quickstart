@@ -132,6 +132,10 @@ quick:
     default-page-size: 10
     pretty-json: true
   builtin:
+    filemanager:
+      enabled: true
+      default-fs: true
+      root: /tmp
     upload:
       enabled: true
     geo:
