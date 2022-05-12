@@ -1,5 +1,5 @@
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-CREATE SEQUENCE example_student_scores_seq;
+CREATE SEQUENCE IF NOT EXISTS example_student_scores_seq;
 
 CREATE TABLE IF NOT EXISTS example_student_scores (
 	id BIGINT default nextval ('example_student_scores_seq') NOT NULL,

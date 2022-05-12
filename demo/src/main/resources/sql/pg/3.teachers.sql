@@ -1,5 +1,5 @@
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-CREATE SEQUENCE example_teachers_seq;
+CREATE SEQUENCE IF NOT EXISTS example_teachers_seq;
 
 CREATE TABLE IF NOT EXISTS example_teachers (
 	id INT NOT NULL DEFAULT NEXTVAL ('example_teachers_seq') ,
