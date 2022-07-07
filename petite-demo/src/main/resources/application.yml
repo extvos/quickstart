@@ -73,7 +73,19 @@ spring:
     resources:
       static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 
+siriux:
+  sms:
+    endpoint: sms.ap-guangzhou.tencentcloudapi.com
+    ap: ap-guangzhou
+    secret-id: AKID1rTrzsWw85nGUTDhwwhDUVHo8E4f182h
+    secret-key: A6nEQN5XkhQt75oIXWGl35sQjma9TXMw
+    app-id: 1400663095
+    template-id: 1436365
+    sign-name: 广东科胜智讯科技
 
+#  APPID: 1310950524
+#  SecretId: AKID1rTrzsWw85nGUTDhwwhDUVHo8E4f182h
+#  SecretKey: A6nEQN5XkhQt75oIXWGl35sQjma9TXMw
 logging:
   #  pattern:
 #    console:
