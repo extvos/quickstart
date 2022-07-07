@@ -18,13 +18,12 @@ import java.util.Set;
  * @author shenmc
  */
 @Service
-@ConditionalOnProperty(prefix = "quick.auth.base", name = "session-dao", havingValue = "redis", matchIfMissing = false)
 public class QuickRedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 
     @Autowired
     private QuickRedisService quickRedisService;
 
-    private static final String QUICK_SESSION_KEY = "quick_shiro_redis_session_";
+    private static final String QUICK_SESSION_KEY = "quick_demo_session_";
 
     private void saveSession(Session session) {
         if (null == session) {
