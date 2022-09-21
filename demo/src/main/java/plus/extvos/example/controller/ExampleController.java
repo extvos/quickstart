@@ -1,12 +1,9 @@
 package plus.extvos.example.controller;
 
-import plus.extvos.common.i18n.LocaleMessage;
-import plus.extvos.restlet.annotation.RemoteAddress;
-import plus.extvos.restlet.annotation.RequestHeader;
-import plus.extvos.restlet.annotation.UserAgent;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +17,17 @@ import plus.extvos.common.Assert;
 import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
+import plus.extvos.common.i18n.LocaleMessage;
 import plus.extvos.example.service.ExampleService;
 import plus.extvos.logging.annotation.Log;
-import plus.extvos.logging.annotation.type.LogAction;
-import plus.extvos.logging.annotation.type.LogLevel;
 import plus.extvos.mqtt.annotation.Payload;
 import plus.extvos.mqtt.annotation.TopicSubscribe;
 import plus.extvos.mqtt.annotation.TopicVariable;
 import plus.extvos.mqtt.publish.MqttPublisher;
 import plus.extvos.redis.service.QuickRedisService;
+import plus.extvos.restlet.annotation.RemoteAddress;
+import plus.extvos.restlet.annotation.RequestHeader;
+import plus.extvos.restlet.annotation.UserAgent;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -106,6 +105,7 @@ public class ExampleController {
     }
 
     @PostMapping("/example/test1")
+    @RequiresPermissions(value = {"token","access"})
     public Result<?> exampleTest1(@RequestParam("access_token") String accessToken, @RequestBody List<Map<Object, Object>> data) {
         log.debug("exampleTest1:> accessToken: {}", accessToken);
         log.debug("exampleTest1:> data: {}", data);
