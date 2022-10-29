@@ -142,7 +142,7 @@ quick:
       full-access: true
       separator: ' '
   auth:
-    base-url: ${AUTH_BASE_URL:http://dev.extvos.org}
+    base-url: ${AUTH_BASE_URL:https://quickstart.dev.gdkesong.com}
     base:
       register-allowed: ${AUTH_REGISTER_ALLOWED:true}
       register-captcha-required: true
@@ -152,9 +152,10 @@ quick:
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
       phone-required: ${AUTH_PHONE_REQUIRED:false}
     wechat:
-      app-id: ${WECHAT_APP_ID:xxxxxx}
-      app-secret: ${WECHAT_APP_SECRET:xxxxxxx}
-      scope: ${WECHAT_SCOPE:snsapi_base}
+#      endpoint: https://open.weixin.qq.com/connect/qrconnect
+      app-id: ${WECHAT_APP_ID:wx01452e935078e443}
+      app-secret: ${WECHAT_APP_SECRET:f94afce4d4baafad153f7bcfc5313733}
+      scope: ${WECHAT_SCOPE:snsapi_userinfo}
       token: ${WECHAT_TOKEN:quick-wechat}
 
 asyncconfig:
