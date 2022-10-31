@@ -34,28 +34,9 @@ public class DingTalkAuthServiceProvider implements OAuthProvider {
         return null;
     }
 
-    /**
-     * @return successUrl when login success to redirect
-     */
     @Override
-    public String successUrl() {
-        return null;
-    }
-
-    /**
-     * @return failedUrl when login failed to redirect
-     */
-    @Override
-    public String failedUrl() {
-        return null;
-    }
-
-    /**
-     * @return registerUrl when login need to register
-     */
-    @Override
-    public String registerUrl() {
-        return null;
+    public String resultPage(int ret, String message) {
+        return "";
     }
 
     @Override
