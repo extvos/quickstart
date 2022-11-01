@@ -151,6 +151,7 @@ quick:
       salt-required: ${AUTH_SALT_REQUIRED:false}
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
       phone-required: ${AUTH_PHONE_REQUIRED:false}
+      default-status: 1
     wechat:
 #      endpoint: https://open.weixin.qq.com/connect/qrconnect
       app-id: ${WECHAT_APP_ID:wx01452e935078e443}
