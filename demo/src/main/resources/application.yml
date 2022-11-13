@@ -154,8 +154,8 @@ quick:
       default-status: 1
     wechat:
 #      endpoint: https://open.weixin.qq.com/connect/qrconnect
-      app-id: ${WECHAT_APP_ID:wx01452e935078e443}
-      app-secret: ${WECHAT_APP_SECRET:f94afce4d4baafad153f7bcfc5313733}
+      app-id: ${WECHAT_APP_ID:wx5edb7aea8782498b}
+      app-secret: ${WECHAT_APP_SECRET:19bbdc4c184c48f778692348a1be0d1e}
       scope: ${WECHAT_SCOPE:snsapi_userinfo}
       token: ${WECHAT_TOKEN:quick-wechat}
 

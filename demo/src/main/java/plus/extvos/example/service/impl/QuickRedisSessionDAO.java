@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * @author shenmc
  */
-@Service
+//@Service
 public class QuickRedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 
     @Autowired
