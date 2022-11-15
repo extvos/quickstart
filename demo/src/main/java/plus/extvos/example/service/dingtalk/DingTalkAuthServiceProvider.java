@@ -40,6 +40,11 @@ public class DingTalkAuthServiceProvider implements OAuthProvider {
     }
 
     @Override
+    public String confirmPage(String title, String siteName, String gotoUrl) {
+        return null;
+    }
+
+    @Override
     public OAuthState authorized(String code, String state, String via, OAuthState authState) throws ResultException {
         return null;
     }
