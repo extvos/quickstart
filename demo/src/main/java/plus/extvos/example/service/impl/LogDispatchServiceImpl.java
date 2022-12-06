@@ -5,12 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import plus.extvos.example.mapper.LogDispatchMapper;
 import plus.extvos.logging.domain.LogObject;
 import plus.extvos.logging.service.LogDispatchService;
 
 @Service
-@DS("clickhouse")
 public class LogDispatchServiceImpl implements LogDispatchService {
     private final static Logger log = LoggerFactory.getLogger(LogDispatchServiceImpl.class);
 
@@ -18,6 +19,8 @@ public class LogDispatchServiceImpl implements LogDispatchService {
     LogDispatchMapper logDispatchMapper;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @DS("clickhouse")
     public void dispatch(LogObject logObject) {
         log.debug(">>> {} {} {} {}", logObject.getRequestUri(), logObject.getAction(), logObject.getMethod(), logObject.getDuration());
         logDispatchMapper.dispatch(logObject);

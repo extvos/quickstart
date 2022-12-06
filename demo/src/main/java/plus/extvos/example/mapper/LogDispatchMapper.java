@@ -4,8 +4,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import plus.extvos.logging.domain.LogObject;
 
-import java.sql.Timestamp;
-
 /*
 CREATE TABLE demo_access_logs
 (
@@ -31,19 +29,19 @@ ORDER BY (username,request_ip,request_uri,agent,method,action,level)
 public interface LogDispatchMapper {
     @Insert({"INSERT INTO demo_access_logs (username,action,level,comment,method,params,request_ip,request_uri,agent,duration,ticks,exception_detail,created) ",
             "VALUES (",
-            "'${username}',",
-            "'${action}',",
-            "'${level}',",
-            "'${comment}',",
-            "'${method}',",
-            "'${params}',",
-            "'${requestIp}',",
-            "'${requestUri}',",
-            "'${agent}',",
-            "${duration},",
+            "#{username},",
+            "#{action},",
+            "#{level},",
+            "#{comment},",
+            "#{method},",
+            "#{params},",
+            "#{requestIp},",
+            "#{requestUri},",
+            "#{agent},",
+            "#{duration},",
             "1,",
-            "'${exceptionDetail}',",
-            "'${created}'",
+            "#{exceptionDetail},",
+            "#{created}",
             ")"})
     void dispatch(LogObject lo);
 }
