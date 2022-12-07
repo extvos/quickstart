@@ -152,7 +152,7 @@ quick:
       captcha-required: ${AUTH_CAPTCHA_REQUIRED:false}
       phone-required: ${AUTH_PHONE_REQUIRED:false}
       default-status: 1
-      logo-image: classpath:img/hawk.png
+      logo-image: classpath:img/aerospace.png
     wechat:
 #      endpoint: https://open.weixin.qq.com/connect/qrconnect
       app-id: ${WECHAT_APP_ID:wx5edb7aea8782498b}
