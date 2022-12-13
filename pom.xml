@@ -24,6 +24,8 @@
         <module>quick-builtin-version</module>
         <!-- https://github.com/extvos/quick-lib-restlet.git -->
         <module>quick-lib-restlet</module>
+        <!-- https://github.com/extvos/quick-lib-excel.git -->
+        <module>quick-lib-excel</module>
         <!-- https://github.com/extvos/quick-lib-logging.git -->
         <module>quick-lib-logging</module>
         <!-- https://github.com/extvos/quick-lib-common.git -->
