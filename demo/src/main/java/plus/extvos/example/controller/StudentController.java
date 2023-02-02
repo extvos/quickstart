@@ -10,6 +10,10 @@ import plus.extvos.common.exception.ResultException;
 import plus.extvos.example.entity.Student;
 import plus.extvos.example.service.StudentService;
 import plus.extvos.excel.controller.BaseExcelController;
+import plus.extvos.excel.dto.CellMapper;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -27,6 +31,15 @@ public class StudentController extends BaseExcelController<Student, StudentServi
     @Autowired
     private StudentService myService;
 
+    private CellMapper[] cellMappers = {
+            new CellMapper("familyName", "姓"),
+            new CellMapper("name", "名"),
+            new CellMapper("gender", "性别"),
+            new CellMapper("age", "年龄"),
+            new CellMapper("birthday", "生日"),
+            new CellMapper("phoneNumber", "电话"),
+    };
+
     @Override
     public StudentService getService() {
         return myService;
@@ -35,6 +48,11 @@ public class StudentController extends BaseExcelController<Student, StudentServi
     @Override
     public String[] defaultExcludes() {
         return new String[]{"age"};
+    }
+
+    @Override
+    public List<CellMapper> defaultCellMappers() {
+        return Arrays.asList(cellMappers);
     }
 
     @Override

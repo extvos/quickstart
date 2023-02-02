@@ -22,7 +22,7 @@ import java.sql.Date;
 public class Student {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "id")
+    @ApiModelProperty(value = "id", example = "0")
     private Long id;
 
     @NotBlank(message = "name of student can not be empty", groups = {OnCreate.class})
@@ -44,7 +44,7 @@ public class Student {
 
     @Max(value = 100, message = "age can not lager than 100", groups = {OnCreate.class})
     @Min(value = 1, message = "age can not less than 1", groups = {OnCreate.class})
-    @ApiModelProperty(value = "年龄")
+    @ApiModelProperty(value = "年龄", example = "0")
     private Integer age;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
