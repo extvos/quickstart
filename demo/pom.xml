@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.8</version>
+        <version>2.5.14</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,7 +18,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <springboot.version>2.5.8</springboot.version>
+        <springboot.version>2.5.14</springboot.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -77,6 +77,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+            <version>8.0.28</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc -->
         <dependency>
@@ -89,7 +90,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.23</version>
+            <version>42.2.27</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -136,12 +137,12 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
+            <version>2.10.5</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
+            <version>2.10.5</version>
         </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -149,12 +150,12 @@
             <version>2.0.8</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.auto.service</groupId>
-            <artifactId>auto-service</artifactId>
-            <version>1.0-rc2</version>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.auto.service</groupId>-->
+<!--            <artifactId>auto-service</artifactId>-->
+<!--            <version>1.0-rc2</version>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.boot</groupId>-->
         <!--            <artifactId>spring-boot-starter-cache</artifactId>-->
@@ -174,86 +175,86 @@
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>8.2.1</version>
+            <version>8.5.2</version>
         </dependency>
 
         <!-- quick modules -->
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-version</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-geo</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-upload</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-quartz</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-mqtt</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-redis</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-builtin-async</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-restlet</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-logging</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-builtin</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-oauth2</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-auth-base</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -265,7 +266,7 @@
         <dependency>
             <groupId>io.github.extvos</groupId>
             <artifactId>quick-lib-excel</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
 
@@ -276,7 +277,7 @@
             <plugin>
                 <groupId>io.github.extvos</groupId>
                 <artifactId>restlet-maven-plugin</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.1.0-SNAPSHOT</version>
                 <!--                <executions>-->
                 <!--                    <execution>-->
                 <!--                        <phase>compile</phase>-->

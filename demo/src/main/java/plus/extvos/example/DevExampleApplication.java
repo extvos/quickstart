@@ -17,7 +17,7 @@ import plus.extvos.example.entity.Student;
 import plus.extvos.example.entity.StudentScore;
 import plus.extvos.example.entity.Teacher;
 import plus.extvos.restlet.utils.DatabaseHelper;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import javax.sql.DataSource;
 
@@ -29,7 +29,7 @@ import javax.sql.DataSource;
 @MapperScan("plus.extvos.example.mapper")
 @SpringBootApplication
 @EnableConfigurationProperties
-@EnableSwagger2
+@EnableSwagger2WebMvc
 public class DevExampleApplication implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(DevExampleApplication.class);
     @Autowired

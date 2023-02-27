@@ -22,7 +22,7 @@ import java.sql.Date;
 public class Student {
     @TableId(type = IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "id", example = "0")
+    @ApiModelProperty(value = "id", example = "")
     private Long id;
 
     @NotBlank(message = "name of student can not be empty", groups = {OnCreate.class})
