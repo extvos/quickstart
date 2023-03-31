@@ -10,15 +10,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
 import plus.extvos.builtin.async.dto.AsyncTask;
 import plus.extvos.builtin.async.service.AsyncTaskRunner;
-import plus.extvos.logging.annotation.Log;
-import plus.extvos.mqtt.annotation.Payload;
-import plus.extvos.mqtt.annotation.TopicSubscribe;
-import plus.extvos.mqtt.publish.MqttPublisher;
-import plus.extvos.redis.service.QuickRedisService;
 import plus.extvos.common.Assert;
 import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
+import plus.extvos.logging.annotation.Log;
+import plus.extvos.mqtt.annotation.Payload;
+import plus.extvos.mqtt.annotation.TopicSubscribe;
+import plus.extvos.mqtt.annotation.TopicVariable;
+import plus.extvos.mqtt.publish.MqttPublisher;
+import plus.extvos.redis.service.QuickRedisService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -85,10 +86,10 @@ public class ExampleController {
 
     @GetMapping("/example/test1")
     public Result<?> exampleTest1Get(@RequestParam("access_token") String accessToken) throws ResultException {
-        Object v = redisService.get("T:"+accessToken);
-        if(null != v){
+        Object v = redisService.get("T:" + accessToken);
+        if (null != v) {
             return Result.data(v).success();
-        }else{
+        } else {
             throw ResultException.notFound();
         }
     }
@@ -123,9 +124,14 @@ public class ExampleController {
         return Result.data("OK").success();
     }
 
-    @TopicSubscribe("test/#")
-    public void mqttTestTopics(String topic, @Payload Map<String, Object> data) {
-        log.debug("mqttTestTopics:> {}, {}", topic, data);
+    @TopicSubscribe("myth2ws01/{devId}")
+    public void myth2ws01(String topic, @TopicVariable("devId") String devId, @Payload Map<String, Object> data) {
+        log.debug("myth2ws01:> {}, {}, {}", topic, devId, data);
+    }
+
+    @TopicSubscribe("flexbox/report/{devId}")
+    public void flexbox(String topic, @TopicVariable("devId") String devId, @Payload Map<String, Object> data) {
+        log.debug("flexbox:> {}, {}, {}", topic, devId, data);
     }
 
 }

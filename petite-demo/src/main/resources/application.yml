@@ -52,23 +52,23 @@ spring:
     brokers: ${MQTT_BROKERS:tcp://localhost:1883}
     username: ${MQTT_USERNAME:emqx}
     password: ${MQTT_PASSWORD:public}
-    clients:
-      quick-demo-1:
-        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-2:
-        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-3:
-        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
-      quick-demo-4:
-        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
-        username: ${MQTT_USERNAME:emqx}
-        password: ${MQTT_PASSWORD:public}
+#    clients:
+#      quick-demo-1:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-2:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-3:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
+#      quick-demo-4:
+#        brokers: ${MQTT_BROKERS:tcp://localhost:1883}
+#        username: ${MQTT_USERNAME:emqx}
+#        password: ${MQTT_PASSWORD:public}
   web:
     resources:
       static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
