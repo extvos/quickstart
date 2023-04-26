@@ -1,6 +1,7 @@
 package plus.extvos.example.controller;
 
 import io.swagger.annotations.Api;
+import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import plus.extvos.restlet.controller.BaseController;
 @RestController
 @RequestMapping("/example/student-skill")
 @Api(tags = {"StudentSkill"})
-@RequiresPermissions(value = {"student","school"})
+@RequiresPermissions(value = {"student","school"}, logical = Logical.OR)
 public class StudentSkillController extends BaseController<StudentSkill, StudentSkillService> {
 
     @Autowired

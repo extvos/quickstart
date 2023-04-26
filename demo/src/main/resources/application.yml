@@ -68,11 +68,11 @@ spring:
           url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:quickdb}
           username: ${POSTGRES_USERNAME:postgres}
           password: ${POSTGRES_PASSWORD:postgres}
-        clickhouse:
-          url: jdbc:clickhouse://${CLICKHOUSE_HOST:localhost}:${CLICKHOUSE_PORT:8123}/${CLICKHOUSE_DB:quickdb}
-          username: ${CLICKHOUSE_USERNAME:admin}
-          password: ${CLICKHOUSE_PASSWORD:admin}
-          driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+#        clickhouse:
+#          url: jdbc:clickhouse://${CLICKHOUSE_HOST:localhost}:${CLICKHOUSE_PORT:8123}/${CLICKHOUSE_DB:quickdb}
+#          username: ${CLICKHOUSE_USERNAME:admin}
+#          password: ${CLICKHOUSE_PASSWORD:admin}
+#          driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
 
   redis:
     database: 0
