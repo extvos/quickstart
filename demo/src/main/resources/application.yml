@@ -154,11 +154,19 @@ quick:
       default-status: 1
       logo-image: classpath:img/aerospace.png
     wechat:
-#      endpoint: https://open.weixin.qq.com/connect/qrconnect
+      enabled: true
       app-id: ${WECHAT_APP_ID:wx5edb7aea8782498b}
       app-secret: ${WECHAT_APP_SECRET:19bbdc4c184c48f778692348a1be0d1e}
       scope: ${WECHAT_SCOPE:snsapi_userinfo}
       token: ${WECHAT_TOKEN:quick-wechat}
+      union: ${WECHAT_UNION:true}
+    wxapp:
+      enabled: true
+      app-id: ${WXAPP_APP_ID:wx5edb7aea8782498b}
+      app-secret: ${WXAPP_APP_SECRET:19bbdc4c184c48f778692348a1be0d1e}
+      scope: ${WXAPP_SCOPE:snsapi_base}
+      token: ${WXAPP_TOKEN:quick-wechat}
+      union: ${WXAPP_UNION:true}
 
 asyncconfig:
   corePoolSize: 10
