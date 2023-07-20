@@ -23,6 +23,6 @@ public class LogDispatchServiceImpl implements LogDispatchService {
     @DS("clickhouse")
     public void dispatch(LogObject logObject) {
         log.debug(">>> {} {} {} {}", logObject.getRequestUri(), logObject.getAction(), logObject.getMethod(), logObject.getDuration());
-        logDispatchMapper.dispatch(logObject);
+//        logDispatchMapper.dispatch(logObject);
     }
 }
