@@ -57,6 +57,7 @@ public class StudentController extends BaseExcelController<Student, StudentServi
 
     @Override
     public Student preInsert(Student entity) throws ResultException {
+        checkRole("ADMIN");
         log.debug(">> preInsert: {}", entity);
 //        Set<ConstraintViolation<Student>> constraintViolations = validator.validate(entity);
 //        if(!constraintViolations.isEmpty()){
