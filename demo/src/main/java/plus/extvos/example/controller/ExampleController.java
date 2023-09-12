@@ -18,6 +18,7 @@ import plus.extvos.common.Result;
 import plus.extvos.common.annotation.Limit;
 import plus.extvos.common.exception.ResultException;
 import plus.extvos.common.i18n.LocaleMessage;
+import plus.extvos.common.utils.RequestContext;
 import plus.extvos.example.service.ExampleService;
 import plus.extvos.logging.annotation.Log;
 import plus.extvos.mqtt.annotation.Payload;
@@ -98,9 +99,10 @@ public class ExampleController {
     @GetMapping("/example/by/user")
     public Result<?> exampleByUser(@SessionUser String username, @RemoteAddress String remoteIp, @UserAgent String ua) {
         Map<String, Object> m = new HashMap<>();
+        RequestContext ctx = RequestContext.probe();
         m.put("SessionUser", username);
-        m.put("RemoteAddress", remoteIp);
-        m.put("UserAgent", ua);
+        m.put("RemoteAddress", ctx.getIpAddress());
+        m.put("UserAgent", ctx.getBrowser());
         return Result.data(m).success();
     }
 
