@@ -22,7 +22,7 @@ public class LogDispatchServiceImpl implements LogDispatchService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     @DS("clickhouse")
     public void dispatch(LogObject logObject) {
-        log.debug(">>> {} {} {} {}", logObject.getRequestUri(), logObject.getAction(), logObject.getMethod(), logObject.getDuration());
+        log.debug(">>> {} / {} / {} / {} / {} / {}", logObject.getModel(), logObject.getRequestUri(), logObject.getAction(), logObject.getMethod(), logObject.getDuration(), logObject.getComment());
 //        logDispatchMapper.dispatch(logObject);
     }
 }
