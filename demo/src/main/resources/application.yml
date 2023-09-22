@@ -141,6 +141,11 @@ quick:
     geo:
       full-access: true
       separator: ' '
+  lbs:
+    tencent:
+      enabled: true
+      key: ${TENCENT_LBS_KEY}
+      secret: ${TENCENT_LBS_SECRET}
   auth:
     base-url: ${AUTH_BASE_URL:https://quickstart.dev.gdkesong.com}
     base:
