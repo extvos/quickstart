@@ -4,6 +4,8 @@
 
 [![Maven Package](https://github.com/extvos/quickstart/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/extvos/quickstart/actions/workflows/maven-publish.yml)
 
+[![JetBrains](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png)](https://www.jetbrains.com)
+
 ## 开始
 
 1. 获取项目代码
