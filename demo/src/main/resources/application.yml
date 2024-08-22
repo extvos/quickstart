@@ -143,7 +143,7 @@ quick:
       separator: ' '
   lbs:
     tencent:
-      enabled: true
+      enabled: false
       key: ${TENCENT_LBS_KEY}
       secret: ${TENCENT_LBS_SECRET}
   auth:
